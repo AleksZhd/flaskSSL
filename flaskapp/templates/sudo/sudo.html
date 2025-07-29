@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form class="py-3" action="" method="POST">
+        <label for="sudo_passwd">Sudo Password</label>
+        <input type="password" name="sudo_passwd" id="sudo_passwd" required>
+        <input type="submit" value="Check sudo">
+    </form>
+
+    <p class="text-danger h6">Warning!!! Sudo Password will be transfer as simple text if HTTP(no SSL) in use. </p>
+    {% for element in output_text %}
+        <pre class="my-0 mx-1">{{ element }}</pre>
+    {% endfor %}
+    <p class="p-5"></p>
+{% endblock %}

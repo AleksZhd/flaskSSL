@@ -1,0 +1,24 @@
+Mon Jul 28 11:13:31 PM UTC 2025
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:3523            0.0.0.0:*               LISTEN      20876/node          
+tcp        0      0 127.0.0.1:8000          0.0.0.0:*               LISTEN      145111/python3.12   
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      803/systemd-resolve 
+tcp        0      0 127.0.0.54:53           0.0.0.0:*               LISTEN      803/systemd-resolve 
+tcp        0      0 127.0.0.1:42675         0.0.0.0:*               LISTEN      88996/code-7adae6a5 
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1/init              
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      1190/nginx: master  
+tcp        0      0 127.0.0.1:55744         127.0.0.1:42675         ESTABLISHED 88975/sshd: aleks@n 
+tcp        0      0 127.0.0.1:37668         127.0.0.1:8000          ESTABLISHED 1193/nginx: worker  
+tcp        0      0 192.168.65.155:80       192.168.65.1:28048      ESTABLISHED 1193/nginx: worker  
+tcp        0     92 192.168.65.155:22       192.168.65.1:16978      ESTABLISHED 88871/sshd: aleks [ 
+tcp        0      0 127.0.0.1:8000          127.0.0.1:43838         TIME_WAIT   -                   
+tcp        0      0 127.0.0.1:8000          127.0.0.1:37668         ESTABLISHED 145115/python3.12   
+tcp        0      0 192.168.65.155:22       192.168.65.1:24905      ESTABLISHED 115232/sshd: aleks  
+tcp        0      0 192.168.65.155:80       192.168.65.1:28049      TIME_WAIT   -                   
+tcp        0      0 192.168.65.155:80       192.168.65.1:28061      ESTABLISHED 1191/nginx: worker  
+tcp        0      0 127.0.0.1:42675         127.0.0.1:55744         ESTABLISHED 88996/code-7adae6a5 
+udp        0      0 127.0.0.54:53           0.0.0.0:*                           803/systemd-resolve 
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           803/systemd-resolve 
+udp        0      0 0.0.0.0:1194            0.0.0.0:*                           1186/openvpn        
+udp        0      0 0.0.0.0:50744           0.0.0.0:*                           1185/openvpn        

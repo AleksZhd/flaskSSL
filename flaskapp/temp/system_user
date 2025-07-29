@@ -1,0 +1,2 @@
+aleks
+uid=1000(aleks) gid=1000(aleks) groups=1000(aleks),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),101(lxd)

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p class="h3">Creating silf-signed Root CA</p>
+<form method = "POST">
+
+{% for key in dn_keys %}
+<dev class="row">
+    <dev class="col-3">
+    <dev class="h6">{{ key }} </dev>
+    </dev>
+    <dev class="col">
+    <input type="text" class="form-control my-1" id="main_dir" value="{{ dn_values[loop.index0] }}" name="{{ key }}" >
+    </dev>
+    <dev class="col-1"></dev>    
+</dev>
+{% endfor %}
+
+    <button type="submit" class="btn btn-success m-3">Create CA</button>
+</form>
+
+{% endblock %}

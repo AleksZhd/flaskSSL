@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- FIRST ROW -->
+<dev class="row">
+<!-- FIRST COLUMN -->
+  <dev class="col-md-auto mx-1 my-3">
+    <form method = 'POST'>
+      <div class="mb-4">
+        <label for="main_dir" class="h5 form-label">PKI Main Directory</label>
+        <input type="text" class="form-control" id="main_dir" aria-describedby="main_dir_help" name = "main_directory" placeholder= {{ pki_dir}}>
+        <div id="main_dir_help" class="form-text">Can leave default value.</div>
+      </div>
+      <div class="text-center">
+        <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#createModal">Create</button>
+        <button type="submit" name = "button_pressed" value="view" class="btn btn-success mx-2">View</button>
+        <button type="button"  class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+      </div>
+        <!-- Modals must be inside form !!! -->
+        <!-- Modal for delete -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteModalLabel">Delete PKI</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Warning! You are about to delete entire PKI.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" name = "button_pressed" value="delete" class="btn btn-danger">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal for create -->
+        <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="createModalLabel">Create PKI</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Creating new PKI will rewrite DataBase files. Continue?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="submit" name = "button_pressed" value="create" class="btn btn-primary">Yes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </form>
+  </dev>
+<!-- FIRST COLUMN  ends-->
+
+   <dev class="col-md-auto mx-1 my-3">
+      <p class="h5"> PKI Directories</p>
+      {% for line in dir_list %}
+      <pre class="h6 m-0"> {{ line }}</pre>
+      {% endfor %}
+   </dev>
+
+   <dev class="col-md-auto mx-1 my-3">
+      <p class="h5"> PKI Directories and Files</p>
+      {% for line in dir_files_list %}
+      <pre class="h6 m-0"> {{ line }}</pre>
+      {% endfor %}
+   </dev>
+</dev>
+<!-- FIRST ROW ENDS -->
+<dev class="container-fluid">
+    <dev class="row">
+
+  <p class="h6"> Index file :</p>
+  {% for line in index_list %}
+    <pre class="m-0">{{ line }}</pre>
+  {% endfor %}
+  </dev>
+ </dev>
+
+
+{% endblock %}

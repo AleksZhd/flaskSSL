@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p class="h4">Root CA Certificate  </p>
+<div class="row ">
+    <div class="col-3 h6">File Location :</div>
+    <div class="col">{{ ca_cert_file }}</div>
+</div>
+<div class="row ">
+    <div class="col-3 h6">Serial Number :</div>
+    <div class="col">{{ ca_info.serial }}</div>
+</div>
+<div class="row ">
+    <div class="col-3 h6">Issued for :</div>
+    <div class="col h6">{{ ca_info.subject }}</div>
+</div>
+<div class="row ">
+    <div class="col-3 h6">Signed by :</div>
+    <div class="col">{{ ca_info.issuer }}</div>
+</div>
+<div class="row ">
+    <div class="col-3 h6">Start Date :</div>
+    <div class="col">{{ ca_info.notBefore }}</div>
+</div>
+<div class="row ">
+    <div class="col-3 h6">End Date :</div>
+    <div class="col">{{ ca_info.notAfter}}</div>
+</div>
+<div class="row ">
+    <div class="col-3 h6">Basic Constraints :</div>
+    <div class="col">{{ ca_info.basicConstraints }}</div>
+</div>
+<div class="row ">
+    <div class="col-3 h6">Key Usage :</div>
+    <div class="col">{{ ca_info.keyUsage }}</div>
+</div>
+<div class="row ">
+    <div class="col-3 h6">Extended Key Usage :</div>
+    <div class="col">{{ ca_info.extendedKeyUsage }}</div>
+</div>
+
+<a class="btn btn-danger m-2" href="{{ url_for('ca_create') }}" role="button">Create New Self-Signed certificate</a>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#viewModal">
+  View Certificate
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="viewModalLabel">Root CA Certificate: </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {% for line in certificate: %}
+            <pre class="m-0"> {{ line }} </pre>
+        {% endfor %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

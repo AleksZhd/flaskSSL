@@ -1,0 +1,49 @@
+Mon Jul 28 11:12:25 PM UTC 2025
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+0.0.0.0         192.168.65.2    0.0.0.0         UG        0 0          0 ens33
+10.8.0.0        0.0.0.0         255.255.255.0   U         0 0          0 tun0
+10.8.0.0        0.0.0.0         255.255.255.0   U         0 0          0 tun1
+10.36.0.0       0.0.0.0         255.255.255.0   U         0 0          0 ens33
+192.168.65.0    0.0.0.0         255.255.255.0   U         0 0          0 ens33
+     Online state: online
+    DNS Addresses: 127.0.0.53 (stub)
+       DNS Search: .
+
+●  1: lo ethernet UNKNOWN/UP (unmanaged)
+      MAC Address: 00:00:00:00:00:00
+        Addresses: 127.0.0.1/8
+
+●  2: ens33 ethernet UP (networkd: ens33)
+      MAC Address: 00:0c:29:11:27:2c (Intel Corporation)
+        Addresses: 192.168.65.155/24
+    DNS Addresses: 192.168.65.2
+           Routes: default via 192.168.65.2 (static)
+                   10.36.0.0/24 (boot, link)
+                   192.168.65.0/24 from 192.168.65.155 
+(link)
+
+●  3: tun0 tunnel/tun UNKNOWN/UP (unmanaged)
+        Addresses: 10.8.0.1/24
+           Routes: 10.8.0.0/24 from 10.8.0.1 (link)
+
+●  4: tun1 tunnel/tun UNKNOWN/UP (unmanaged)
+        Addresses: 10.8.0.2/24
+           Routes: 10.8.0.0/24 from 10.8.0.2 (link)
+Global
+         Protocols: -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+  resolv.conf mode: stub
+
+Link 2 (ens33)
+    Current Scopes: DNS
+         Protocols: +DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+Current DNS Server: 192.168.65.2
+       DNS Servers: 192.168.65.2
+
+Link 3 (tun0)
+    Current Scopes: none
+         Protocols: -DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+Link 4 (tun1)
+    Current Scopes: none
+         Protocols: -DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported

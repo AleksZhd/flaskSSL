@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OVPN</title>
+    <link href= {{ url_for('static', filename='bootstrap-5.3.6-dist/css/bootstrap.min.css') }} rel="stylesheet">
+</head>
+
+<body>
+<div class="container-fluid"> <!-- main container for the web -->
+
+<!-- NAV BAR STARTS HERE -->
+<nav class="navbar navbar-expand-sm bg-body-secondary my-1 rounded">
+<div class="container-fluid"> <!-- container for nav bar -->
+    <a class="navbar-brand" href="{{ url_for('index') }}">OVPN</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <!-- container for collapse -->    
+    <div class="collapse navbar-collapse" id="navbarNav">
+    <!-- NAV LEFT SIDE -->
+          <ul class="navbar-nav">
+          {% if current_user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('sudo') }}">Sudo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('network') }}">Network</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('netstat') }}">Netstat</a>
+            </li>
+          {% endif %}
+          </ul>
+    <!-- END NAV LEFT SIDE -->
+    <!-- NAV RIGHT SIDE -->
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Web User: </a>
+            </li>
+          {% if current_user.is_authenticated %}  
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+            </li>
+          {% else %}  
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+            </li>
+          {% endif %}
+          </ul>
+    <!-- END NAV RIGHT SIDE -->
+    </div> <!-- end of container for collapse -->
+</div> <!-- end of container for nav bar -->
+</nav>
+<!-- </div> <!-- end of row for nav bar -->
+<!-- NAV BAR ENDS HERE -->
+
+<div class="row"> <!-- row for main body -->
+  <!-- flashing messages -->
+  <div class="container-fluid text-center">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  </div>
+  <!-- end of flashing messages -->
+  
+  <div class="col-lg-2">
+    <div class="container-fluid bg-body-secondary rounded py-2">
+    {% if current_user.is_authenticated %}
+        <p class="h6 my-0">Web user : {{current_user.web_username}}</p>
+        <p class="h6 my-0">Sys user : {{current_user.sys_username}}</p>
+       {% if current_user.sudo_verified %}
+            <p class="text-success h6"> SUDO CONFIRMED </p>
+       {% else %}
+        <p class="text-danger h6"> NO SUDO </p>
+       {% endif %}
+    {% else %}
+        <p class="text-danger h6">NO USER LOGGED IN </p>
+    {% endif %}
+    </div>
+    <!-- vertical menu on left side -->
+     {% if current_user.is_authenticated and current_user.sudo_verified %}
+    <div class="container-fluid  bg-body-secondary rounded my-1">
+      <a class="btn btn-primary mx-auto btn-sm m-1" href="{{ url_for('pki') }}">Public Key Infrastructure</a>
+      <a class="btn btn-primary mx-auto btn-sm m-1" href="{{ url_for('ca') }}">Certificate Authority</a>
+      <a class="btn btn-primary mx-auto btn-sm m-1" href="{{ url_for('server') }}">Server</a>
+    </div>
+    {% endif %}
+    <!-- vertical menu on left side -->
+
+  </div>
+  <div class="col-lg">
+    <div class="container-fluid bg-body-secondary rounded">
+    {% block content %}
+    {% endblock %}
+    </div>
+  </div>
+
+</div> <!-- end of row for main body -->
+</div> <!-- end of main container --> 
+  <script src= {{ url_for('static', filename='bootstrap-5.3.6-dist/js/bootstrap.min.js') }}></script>    
+</body>
+</html>

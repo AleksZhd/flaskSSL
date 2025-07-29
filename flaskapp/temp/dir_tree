@@ -1,0 +1,22 @@
+/etc/PKI
+├── clients
+├── crl
+├── RootCA
+│   ├── CA
+│   │   ├── ca.cert
+│   │   └── ca.key
+│   └── DataBase
+│       ├── certs
+│       │   ├── 19530606AB0001.pem
+│       │   └── 19530606AB0002.pem
+│       ├── index.txt
+│       ├── index.txt.attr
+│       ├── index.txt.attr.old
+│       ├── index.txt.old
+│       ├── serial
+│       └── serial.old
+└── server
+    ├── my_ovpn_server.cert
+    └── my_ovpn_server.key
+
+8 directories, 12 files
