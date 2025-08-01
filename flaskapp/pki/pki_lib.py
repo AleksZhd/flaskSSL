@@ -5,7 +5,7 @@ from flaskapp import app
 from flask_login import current_user
 
 TEMP_DIR = app.root_path + "/temp/"
-PKI_DIR_FILE = app.root_path + "/pki/temp/pki_dir.txt"
+PKI_DIR_FILE = app.root_path + "/pki/config/pki_dir.txt"
 SERIAL_NUMBER = "19530606AB0001"
 
 #mkdir -p ca/root-ca/private ca/root-ca/db crl certs
@@ -91,17 +91,3 @@ def update_pki_dir(directory_name):
         return False    
     return True
     
-def read_config(file_name):
-    config_list = [[]]
-    error, file_list = file_to_list(file_name)
-    if error != 'NONE':
-        flash (error, 'danger')
-    x = 0
-    block = 0
-    while x < len(file_list):
-        if file_list[x].find('[') !=-1:
-            # found a new block in cinfig file
-            block = block + 1
-        config_list[block][x] = file_list[x].strip()
-        x = x + 1
-    return config_list

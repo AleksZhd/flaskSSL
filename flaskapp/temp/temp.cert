@@ -1,0 +1,77 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 7128159764545543 (0x19530606ab0007)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C = NR, ST = Velen, L = Oxenfurt, O = Tavern, CN = New CA
+        Validity
+            Not Before: Aug  1 15:52:47 2025 GMT
+            Not After : Aug  1 15:52:47 2035 GMT
+        Subject: C = NR, ST = Velen, L = Oxenfurt, O = Tavern, CN = one
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:f8:2b:58:c9:05:1d:d2:9e:28:90:b5:ca:21:6b:
+                    3d:ca:1b:3b:dc:0f:8a:b5:cc:84:bd:0c:74:e6:24:
+                    4c:2f:f9:7f:cf:c5:28:a2:7a:f2:11:1a:43:d4:4b:
+                    d8:05:bd:16:5c:d3:f3:a5:6f:62:1b:a1:ee:d8:d6:
+                    ad:2d:d6:25:a9:01:fe:00:33:01:55:58:54:4b:bf:
+                    79:cc:10:63:a9:81:3f:97:53:9a:bb:91:96:68:14:
+                    75:b8:fc:8f:da:d7:2e:a7:e7:1c:61:27:e7:71:5f:
+                    4c:8a:ad:75:a2:04:ec:fe:14:50:03:fa:e4:ec:50:
+                    5e:55:be:18:f0:4d:19:c2:4f:8a:3b:ae:ab:79:8b:
+                    8c:e0:4a:6f:d8:bf:e3:26:76:e2:b5:d0:e4:06:45:
+                    ba:bd:a9:88:6d:5a:ba:43:dc:c4:59:d6:56:d4:86:
+                    74:1e:6d:9f:e4:fc:2b:59:6d:94:5f:e3:1d:de:ee:
+                    a6:5c:73:d2:0d:72:41:bf:6b:46:e4:26:57:a3:c9:
+                    d5:81:7e:95:8e:d5:b7:94:7d:fb:85:ca:56:00:92:
+                    f4:8e:9e:03:41:51:62:f1:fa:83:9b:ff:99:2a:c0:
+                    d3:7a:91:a0:da:df:3b:f6:fd:65:19:1c:62:90:5e:
+                    2e:43:7b:fa:43:6f:86:84:14:ab:5b:1f:2e:c1:9a:
+                    7f:03
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Comment: 
+                OpenSSL Generated Client Certificate
+            X509v3 Subject Key Identifier: 
+                62:84:34:C3:24:B9:A5:22:DB:A1:36:82:5C:EE:C4:AD:8F:F7:CE:64
+            X509v3 Authority Key Identifier: 
+                49:D0:A5:42:47:01:AB:20:DB:7C:E2:BB:26:D4:87:AD:95:F5:9A:37
+            X509v3 Key Usage: 
+                Digital Signature, Key Encipherment
+            X509v3 Extended Key Usage: 
+                TLS Web Client Authentication
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:
+        ad:62:e6:5a:8a:b1:c9:6b:5b:29:ef:ef:17:e8:48:74:87:d5:
+        6e:36:3f:ae:26:8d:bd:e2:80:6a:98:b5:4e:e9:e5:49:2a:2e:
+        f9:79:db:72:fb:fa:5a:47:90:8a:d9:11:7a:eb:a5:56:29:cd:
+        28:0d:c3:87:d4:70:4e:ec:b9:e8:6c:ab:5c:8b:ae:8a:f6:98:
+        d1:cf:40:66:21:38:db:0d:93:93:d1:15:7d:96:90:65:d4:36:
+        c8:96:19:ec:04:81:a3:ab:f8:04:3d:fd:d4:87:95:9a:3e:b4:
+        c1:67:e5:b4:60:34:ea:d2:a5:fa:3f:5e:0d:15:a2:c7:09:e7:
+        8d:5a:a8:3d:0c:a4:23:ff:82:9a:14:fa:cf:e6:0e:a1:bd:9b:
+        41:95:ed:05:d6:32:05:4b:bc:ea:0a:7a:2f:26:3f:93:d6:c9:
+        79:c5:a4:52:1e:89:a3:6f:53:6d:cf:ce:bd:12:08:58:e8:cb:
+        a5:28:d8:e0:1c:58:d6:c1:db:90:f2:d7:a7:d1:02:35:8c:71:
+        1a:bc:36:5b:f2:e7:7d:a8:41:7e:ff:af:39:1d:d7:c9:fa:96:
+        cc:e1:30:c8:d9:e7:68:57:19:54:17:6c:1c:9b:3a:58:6c:3f:
+        ae:6b:fd:76:26:82:dd:c1:08:db:72:11:70:18:63:dc:40:a6:
+        b1:1d:28:55:a6:b0:51:9c:7c:bc:b3:70:0c:41:42:d5:97:5b:
+        3f:69:18:d4:e0:83:e4:07:8f:2f:d8:f3:e1:a6:06:f2:2a:e9:
+        b4:80:1e:bb:65:95:e8:17:ab:9b:58:af:2d:e1:da:e0:b5:1e:
+        d9:8f:98:0f:b0:3e:50:96:b1:4f:ca:e2:4e:14:2c:1c:04:54:
+        65:02:96:20:d0:31:7f:35:34:c9:39:7f:80:02:25:dc:02:23:
+        06:1b:78:39:84:3b:d8:42:93:46:00:0f:50:51:e4:4a:81:90:
+        94:da:8e:19:71:da:6d:c8:67:94:22:8b:47:f8:93:b3:7e:73:
+        ed:1b:32:c9:9e:3d:85:b4:df:6f:73:84:1c:76:0b:b4:bd:4a:
+        84:23:e7:a9:4c:08:35:d0:34:0e:cf:1d:7d:af:54:40:a4:72:
+        a7:01:4e:e5:cb:58:96:88:75:91:6e:0d:15:b7:2b:d9:bf:50:
+        d5:22:20:8e:1a:68:10:f5:6c:b6:47:28:c0:fe:04:81:8a:51:
+        0d:c0:ec:2f:1f:8f:ca:8c:39:6f:78:fd:d4:f8:b3:d2:11:56:
+        d4:4b:d6:c1:35:fc:94:92:f0:a7:b0:27:66:8e:e7:2d:e1:18:
+        47:fd:d3:a2:4c:c3:92:57:47:da:ae:12:fe:a0:39:0b:21:78:
+        a6:56:13:78:fe:3d:09:98

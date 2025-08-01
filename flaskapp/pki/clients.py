@@ -1,5 +1,5 @@
 from flask import render_template, request,redirect, url_for, flash
-from flaskapp.pki.server_lib import get_server_list, create_server_cert
+from flaskapp.pki.server_client_lib import get_srvr_clnt_list, create_srvr_clnt_cert
 from flaskapp import app
 from flask_login import login_required
 from flaskapp.pki.ca_lib import DistinguishedName
@@ -11,7 +11,10 @@ import os
 @app.route('/clients', methods = ['GET' , 'POST'])
 @login_required
 def clients():
-    error, clients_list = get_server_list("/clients/")
+    error, clients_list = get_srvr_clnt_list("/clients/")
+    if error != 'NONE':
+        clients_list = []
+        flash (error, 'danger')
     return render_template ('/pki/clients.html',
                             clients_list = clients_list)
 
@@ -34,7 +37,7 @@ def clients_create():
             dn_values[x] = request.form[dn_keys[x]]
             dn.values[x] = request.form[dn_keys[x]]
             x += 1
-        error = create_server_cert(dn, True)
+        error = create_srvr_clnt_cert(dn, True)
         if  error !=  'NONE':
             flash (error , 'danger')
         else:

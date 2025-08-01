@@ -6,25 +6,23 @@ from flaskapp.pki.pki_lib import get_pki_dir
 from flask_login import current_user
 from flask import flash
 
-server_csr_tmpl = app.root_path + "/pki/temp/server-csr.tmpl"
-server_csr_conf = app.root_path + "/pki/temp/server-csr.conf"
-root_ca_conf = app.root_path + "/pki/temp/root-ca.conf"
-server_csr = app.root_path + "/pki/temp/server.csr"
+server_csr_tmpl = app.root_path + "/pki/config/server-csr.tmpl"
+server_csr_conf = app.root_path + "/pki/config/server-csr.conf"
+root_ca_conf = app.root_path + "/pki/config/root-ca.conf"
+server_csr = app.root_path + "/pki/config/server.csr"
 
-def get_server_list(path = "/server/"):
+def get_srvr_clnt_list(path = "/server/"):
     error = 'NONE'
-    server_list = []
-    server_cert_dir =  get_pki_dir()[1] + path    
-    if os.system("ls " + server_cert_dir) !=0:
-        error = "Can not find directory " + server_cert_dir +" check PKI existance."
-        return error, server_list
-    server_list = os.popen('ls ' + server_cert_dir + ' | grep .cert').read().split()
-    return error, server_list
+    srvr_clnt_list = []
+    srvr_clnt_dir =  get_pki_dir()[1] + path    
+    if os.system("ls " + srvr_clnt_dir) !=0:
+        error = "Can not find directory " + srvr_clnt_dir +" check PKI existance."
+        return error, srvr_clnt_list
+    srvr_clnt_list = os.popen('ls ' + srvr_clnt_dir + ' | grep .cert').read().split()
+    return error, srvr_clnt_list
 
-def create_server_cert(dn=DistinguishedName(), client = False):
+def create_srvr_clnt_cert(dn=DistinguishedName(), client = False):
 #1 prelimenary checks:
-    if client:
-        flash ("CLIENT")
     error = 'NONE'
     if not sudo_timestemp_reset():
         error = 'Please check/reset SUDO password'
@@ -69,13 +67,13 @@ def create_server_cert(dn=DistinguishedName(), client = False):
     else:
         certificate_dir = server_cert_dir
         extension = "server_extensions"
-#3 creating  csr for server:
+#3 creating  csr for server or client:
     os.system("echo " + current_user.sudo_password_encoded 
               + " | sudo -S openssl req -new "
               + "-newkey rsa:2048 -keyout " + certificate_dir + "/" + file_name + ".key "
               + "-config " + server_csr_conf
               + " -out " + server_csr + " -nodes")
-#4 creating certificate for server
+#4 creating certificate for server or client
     os.chdir(get_pki_dir()[1])
     os.system("echo " + current_user.sudo_password_encoded 
               + " | sudo -S openssl ca"

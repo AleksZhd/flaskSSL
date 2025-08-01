@@ -3,12 +3,12 @@ from flask_login import login_required
 from flaskapp.pki.pki_lib import get_pki_dir
 from flaskapp import app
 from flaskapp.pki.ca_lib import DistinguishedName, certificate_to_list
-from flaskapp.pki.server_lib import create_server_cert, get_server_list
+from flaskapp.pki.server_client_lib import create_srvr_clnt_cert, get_srvr_clnt_list
 
 @app.route("/server", methods = ['GET' , 'POST'])
 @login_required
 def server():
-    error, server_list = get_server_list()
+    error, server_list = get_srvr_clnt_list()
     if error != 'NONE':
         server_list = []
         flash (error, 'danger')
@@ -41,7 +41,7 @@ def server_create():
             dn_values[x] = request.form[dn_keys[x]]
             dn.values[x] = request.form[dn_keys[x]]
             x += 1
-        error = create_server_cert(dn)
+        error = create_srvr_clnt_cert(dn)
         if  error !=  'NONE':
             flash (error , 'danger')
         else:

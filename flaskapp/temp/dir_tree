@@ -1,11 +1,12 @@
 /etc/PKI
 ├── clients
-│   ├── one_moe_client.cert
-│   ├── one_moe_client.key
-│   ├── open_vpn_client.cert
-│   └── open_vpn_client.key
+│   ├── aaz.cert
+│   ├── aaz.key
+│   ├── iaz.cert
+│   ├── iaz.key
+│   ├── tim.cert
+│   └── tim.key
 ├── crl
-│   └── crl.pem
 ├── RootCA
 │   ├── CA
 │   │   ├── ca.cert
@@ -16,7 +17,8 @@
 │       │   ├── 19530606AB0002.pem
 │       │   ├── 19530606AB0003.pem
 │       │   ├── 19530606AB0004.pem
-│       │   └── 19530606AB0005.pem
+│       │   ├── 19530606AB0005.pem
+│       │   └── 19530606AB0006.pem
 │       ├── index.txt
 │       ├── index.txt.attr
 │       ├── index.txt.attr.old
@@ -24,7 +26,9 @@
 │       ├── serial
 │       └── serial.old
 └── server
-    ├── open_vpn_server.cert
-    └── open_vpn_server.key
+    ├── o.cert
+    ├── o.key
+    ├── ovpn_server.cert
+    └── ovpn_server.key
 
-8 directories, 20 files
+8 directories, 24 files

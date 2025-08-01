@@ -1,21 +1,20 @@
-Wed Jul 30 05:20:49 PM UTC 2025
+Fri Aug  1 03:32:30 PM UTC 2025
 Active Internet connections (servers and established)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
-tcp        0      0 127.0.0.1:33673         0.0.0.0:*               LISTEN      73804/code-7adae6a5 
-tcp        0      0 0.0.0.0:3901            0.0.0.0:*               LISTEN      56832/node          
 tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      903/systemd-resolve 
 tcp        0      0 127.0.0.54:53           0.0.0.0:*               LISTEN      903/systemd-resolve 
+tcp        0      0 0.0.0.0:5949            0.0.0.0:*               LISTEN      167652/node         
 tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      1193/nginx: master  
+tcp        0      0 127.0.0.1:35997         0.0.0.0:*               LISTEN      167279/code-7adae6a 
 tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1/init              
-tcp        0      0 0.0.0.0:5000            0.0.0.0:*               LISTEN      57705/python        
-tcp        0      0 192.168.65.155:22       192.168.65.1:39874      ESTABLISHED 74245/sshd: aleks [ 
-tcp        0      0 192.168.65.155:5000     192.168.65.149:50441    ESTABLISHED 70314/python        
-tcp        0      0 127.0.0.1:33673         127.0.0.1:49034         ESTABLISHED 73804/code-7adae6a5 
-tcp        0      0 192.168.65.155:5000     192.168.65.149:50389    TIME_WAIT   -                   
-tcp        0      0 192.168.65.155:22       192.168.65.1:39668      ESTABLISHED 73673/sshd: aleks [ 
-tcp        0      0 127.0.0.1:49034         127.0.0.1:33673         ESTABLISHED 73785/sshd: aleks@n 
-tcp        0      0 192.168.65.155:5000     192.168.65.149:50442    ESTABLISHED 70314/python        
-tcp        0      0 192.168.65.155:5000     192.168.65.149:50362    TIME_WAIT   -                   
+tcp        0      0 0.0.0.0:5000            0.0.0.0:*               LISTEN      171009/python       
+tcp        0      0 192.168.65.155:5000     192.168.65.1:24860      ESTABLISHED 171013/python       
+tcp        0      0 192.168.65.155:22       192.168.65.1:24455      ESTABLISHED 167139/sshd: aleks  
+tcp        0      0 127.0.0.1:59680         127.0.0.1:35997         ESTABLISHED 167258/sshd: aleks@ 
+tcp        0      0 192.168.65.155:5000     192.168.65.1:24822      TIME_WAIT   -                   
+tcp        0      0 192.168.65.155:5000     192.168.65.1:24859      ESTABLISHED 171013/python       
+tcp        0      0 127.0.0.1:35997         127.0.0.1:59680         ESTABLISHED 167279/code-7adae6a 
+tcp        0      0 192.168.65.155:22       192.168.65.1:24491      ESTABLISHED 168014/sshd: aleks  
 udp        0      0 127.0.0.54:53           0.0.0.0:*                           903/systemd-resolve 
 udp        0      0 127.0.0.53:53           0.0.0.0:*                           903/systemd-resolve 
-udp        0      0 0.0.0.0:1194            0.0.0.0:*                           78437/openvpn       
+udp        0      0 0.0.0.0:1194            0.0.0.0:*                           80888/openvpn       

@@ -6,10 +6,10 @@ from flaskapp.sudo.sudo_lib import sudo_timestemp_reset
 from flask_login import current_user
 from flask import flash
 
-ca_csr_tmpl = app.root_path + "/pki/temp/ca-csr.tmpl"
-ca_csr_conf = app.root_path + "/pki/temp/ca-csr.conf"
-root_ca_conf = app.root_path + "/pki/temp/root-ca.conf"
-ca_csr = app.root_path + "/pki/temp/ca.csr"
+ca_csr_tmpl = app.root_path + "/pki/config/ca-csr.tmpl"
+ca_csr_conf = app.root_path + "/pki/config/ca-csr.conf"
+root_ca_conf = app.root_path + "/pki/config/root-ca.conf"
+ca_csr = app.root_path + "/pki/config/ca.csr"
 ca_key = "rsa:4096"
 
 class X509Info:
@@ -79,7 +79,7 @@ def create_ca_cert():
         return error
     ca_cert_dir =  get_pki_dir()[1] + "/RootCA/CA"
     # this check needs to be here
-    # when user tryes to create certufucate without existing PKI
+    # when user tryes to create certificate without existing PKI
     if os.system("ls " + ca_cert_dir) !=0:
         return "Can not find directory for Root CA check PKI existance."
     #1 creating  csr for CA:
@@ -160,7 +160,7 @@ def get_ca_cert_info():
 
 def certificate_to_list (file_path):
     cert_list = []
-    temp_file = app.root_path + "/pki/temp/temp.cert"
+    temp_file = app.root_path + "/temp/temp.cert"
     os.system("echo " + current_user.sudo_password_encoded 
                         + " | sudo -S openssl x509 " 
                         + "-in " + file_path 
