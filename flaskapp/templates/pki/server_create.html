@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p class="h3">Creating silf-signed Root CA</p>
+<p class="h3">Creating Server Certificate</p>
 <form method = "POST">
 
 {% for key in dn_keys %}
@@ -16,7 +16,7 @@
 </dev>
 {% endfor %}
 
-    <button type="submit" class="btn btn-success m-3">Create CA</button>
+    <button type="submit" class="btn btn-success m-3">Create Server Cert</button>
 </form>
 
 {% endblock %}

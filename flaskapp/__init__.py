@@ -19,4 +19,4 @@ from flaskapp import main
 from flaskapp.auth import auth
 from flaskapp.network import network
 from flaskapp.sudo import sudo
-from flaskapp.pki import pki, ca, server
+from flaskapp.pki import pki, ca, server, clients

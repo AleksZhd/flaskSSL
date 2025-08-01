@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- <pre class="p-0">{{text}}</pre>
+-->
+<form method = 'POST'>
+    <textarea class="form-control" name="text" rows="20">{{text}}</textarea>
+    <button type="submit"> submit</button>
+</form>
+
+{% endblock %}

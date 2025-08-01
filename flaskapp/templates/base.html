@@ -87,10 +87,12 @@
     </div>
     <!-- vertical menu on left side -->
      {% if current_user.is_authenticated and current_user.sudo_verified %}
-    <div class="container-fluid  bg-body-secondary rounded my-1">
-      <a class="btn btn-primary mx-auto btn-sm m-1" href="{{ url_for('pki') }}">Public Key Infrastructure</a>
-      <a class="btn btn-primary mx-auto btn-sm m-1" href="{{ url_for('ca') }}">Certificate Authority</a>
-      <a class="btn btn-primary mx-auto btn-sm m-1" href="{{ url_for('server') }}">Server</a>
+    <div class="d-grid gap-1">
+      <a class="h6 mt-2"> Certificates Management </a>
+      <a class="btn btn-primary btn-sm m-1" href="{{ url_for('pki') }}">Public Key Infrastructure</a>
+      <a class="btn btn-primary btn-sm m-1" href="{{ url_for('ca') }}">Certificate Authority</a>
+      <a class="btn btn-primary btn-sm m-1" href="{{ url_for('server') }}">Server</a>
+      <a class="btn btn-primary btn-sm m-1" href="{{ url_for('clients') }}">Clients</a>
     </div>
     {% endif %}
     <!-- vertical menu on left side -->

@@ -4,7 +4,7 @@
 <!-- FIRST ROW -->
 <dev class="row">
 <!-- FIRST COLUMN -->
-  <dev class="col-md-auto mx-1 my-3">
+  <dev class="col-sm-auto mx-1 my-3">
     <form method = 'POST'>
       <div class="mb-4">
         <label for="main_dir" class="h5 form-label">PKI Main Directory</label>
@@ -58,14 +58,14 @@
   </dev>
 <!-- FIRST COLUMN  ends-->
 
-   <dev class="col-md-auto mx-1 my-3">
+   <dev class="col-sm-auto mx-1 my-3">
       <p class="h5"> PKI Directories</p>
       {% for line in dir_list %}
       <pre class="h6 m-0"> {{ line }}</pre>
       {% endfor %}
    </dev>
 
-   <dev class="col-md-auto mx-1 my-3">
+   <dev class="col-sm-auto mx-1 my-3">
       <p class="h5"> PKI Directories and Files</p>
       {% for line in dir_files_list %}
       <pre class="h6 m-0"> {{ line }}</pre>

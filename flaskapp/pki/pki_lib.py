@@ -60,9 +60,9 @@ def dir_tree(directory_name,including_files = False):
     error = 'NONE'
     dir_tree_list = ['Not exist.']
     if including_files:
-        cmd_line = "tree " + directory_name + " > " + TEMP_DIR + "dir_tree"
+        cmd_line = "echo " + current_user.sudo_password_encoded + " | sudo -S tree " + directory_name + " > " + TEMP_DIR + "dir_tree"
     else:
-        cmd_line = "tree -d " + directory_name + " > " + TEMP_DIR + "dir_tree"
+        cmd_line = "echo " + current_user.sudo_password_encoded + " | sudo -S tree -d " + directory_name + " > " + TEMP_DIR + "dir_tree"
     if os.system(cmd_line) != 0:
         #flash ("Error in 'tree' command. Mayby PKI directory is not exist yeat. Please create one.", 'warning')
         return dir_tree_list

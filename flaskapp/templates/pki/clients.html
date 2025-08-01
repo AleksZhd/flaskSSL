@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
- <p class="h4"> Server Certificate </p>   
+ <p class="h4"> Clients` Certificates </p>   
 <dev class="row">
  <dev class="col-4">
   <!-- <form method = 'POST'>  -->
    <div class="d-grid gap-2">
-    {% for server in server_list %}
-     <a class="btn btn-secondary" href="{{ url_for('server_cert', file_name = server)}}">{{ server }}</a>
+    {% for client in clients_list %}
+     <a class="btn btn-secondary" href="{{ url_for('client_cert', file_name = client)}}">{{ client }}</a>
     {% endfor %}
    </div>
  <!-- </form> -->
-     <a class="btn btn-success mx-auto btn-sm my-2" href="{{ url_for('server_create') }}">Create New Server Certificate</a>
+     <a class="btn btn-success mx-auto btn-sm my-2" href="{{ url_for('clients_create') }}">Add a Client</a>
   </dev>
   <dev class="col-4">
    <div class="d-grid gap-2">
