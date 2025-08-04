@@ -4,9 +4,14 @@
 │   ├── aaz.key
 │   ├── iaz.cert
 │   ├── iaz.key
+│   ├── one.cert
+│   ├── one.key
 │   ├── tim.cert
 │   └── tim.key
 ├── crl
+│   ├── crlnumber
+│   ├── crlnumber.old
+│   └── crl.pem
 ├── RootCA
 │   ├── CA
 │   │   ├── ca.cert
@@ -18,17 +23,19 @@
 │       │   ├── 19530606AB0003.pem
 │       │   ├── 19530606AB0004.pem
 │       │   ├── 19530606AB0005.pem
-│       │   └── 19530606AB0006.pem
+│       │   ├── 19530606AB0006.pem
+│       │   └── 19530606AB0007.pem
 │       ├── index.txt
 │       ├── index.txt.attr
 │       ├── index.txt.attr.old
 │       ├── index.txt.old
 │       ├── serial
 │       └── serial.old
+├── root-ca.conf
 └── server
     ├── o.cert
     ├── o.key
     ├── ovpn_server.cert
     └── ovpn_server.key
 
-8 directories, 24 files
+8 directories, 31 files
