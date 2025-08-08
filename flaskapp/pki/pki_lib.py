@@ -5,6 +5,7 @@ from flaskapp import app
 from flask_login import current_user
 
 TEMP_DIR = app.root_path + "/temp/"
+PKI_CONFIG_DIR  = app.root_path + "/pki/config/"
 PKI_DIR_FILE = app.root_path + "/pki/config/pki_dir.txt"
 SERIAL_NUMBER = "19530606AB0001"
 
@@ -53,6 +54,9 @@ def make_dir(directory_name):
         os.system("echo " + current_user.sudo_password_encoded + " | sudo -S cp "
                   + TEMP_DIR + "serial " 
                   + directory_name + "/RootCA/DataBase/")
+        os.system("echo " + current_user.sudo_password_encoded + " | sudo -S cp "
+                  + PKI_CONFIG_DIR + "crlnumber " 
+                  + directory_name + "/crl/")
         flash ("PKI in " + directory_name + " has been created/verified.", 'success')
         return True
 

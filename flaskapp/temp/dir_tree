@@ -1,13 +1,11 @@
-/etc/PKI
+/etc/myPKI
 ├── clients
-│   ├── aaz.cert
-│   ├── aaz.key
-│   ├── iaz.cert
-│   ├── iaz.key
-│   ├── one.cert
-│   ├── one.key
-│   ├── tim.cert
-│   └── tim.key
+│   ├── testing_1.cert
+│   ├── testing_1.key
+│   ├── testing_2.cert
+│   ├── testing_2.key
+│   ├── testing_3.cert
+│   └── testing_3.key
 ├── crl
 │   ├── crlnumber
 │   ├── crlnumber.old
@@ -22,20 +20,15 @@
 │       │   ├── 19530606AB0002.pem
 │       │   ├── 19530606AB0003.pem
 │       │   ├── 19530606AB0004.pem
-│       │   ├── 19530606AB0005.pem
-│       │   ├── 19530606AB0006.pem
-│       │   └── 19530606AB0007.pem
+│       │   └── 19530606AB0005.pem
 │       ├── index.txt
 │       ├── index.txt.attr
 │       ├── index.txt.attr.old
 │       ├── index.txt.old
 │       ├── serial
 │       └── serial.old
-├── root-ca.conf
 └── server
-    ├── o.cert
-    ├── o.key
-    ├── ovpn_server.cert
-    └── ovpn_server.key
+    ├── server_ovpn.cert
+    └── server_ovpn.key
 
-8 directories, 31 files
+8 directories, 24 files

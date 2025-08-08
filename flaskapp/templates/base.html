@@ -89,10 +89,13 @@
      {% if current_user.is_authenticated and current_user.sudo_verified %}
     <div class="d-grid gap-1">
       <a class="h6 mt-2"> Certificates Management </a>
-      <a class="btn btn-primary btn-sm m-1" href="{{ url_for('pki') }}">Public Key Infrastructure</a>
-      <a class="btn btn-primary btn-sm m-1" href="{{ url_for('ca') }}">Certificate Authority</a>
-      <a class="btn btn-primary btn-sm m-1" href="{{ url_for('server') }}">Server</a>
-      <a class="btn btn-primary btn-sm m-1" href="{{ url_for('clients') }}">Clients</a>
+      <a class="btn btn-primary btn-sm m-0" href="{{ url_for('pki') }}">Public Key Infrastructure</a>
+      <a class="btn btn-primary btn-sm m-0" href="{{ url_for('ca') }}">Certificate Authority</a>
+      <a class="btn btn-primary btn-sm m-0" href="{{ url_for('server') }}">Server</a>
+      <a class="btn btn-primary btn-sm m-0" href="{{ url_for('clients') }}">Clients</a>
+      <a class="btn btn-primary btn-sm m-0" href="#">Revocation</a>
+      <a class="h6 mt-2"> Open VPN Management </a>
+      <a class="btn btn-primary btn-sm m-0" href="{{ url_for('ovpn_config') }}">OVPN Configuration</a>
     </div>
     {% endif %}
     <!-- vertical menu on left side -->

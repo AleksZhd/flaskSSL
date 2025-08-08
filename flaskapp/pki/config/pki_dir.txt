@@ -1,1 +1,1 @@
-/etc/PKI
+/etc/myPKI

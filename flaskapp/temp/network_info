@@ -1,4 +1,4 @@
-Fri Aug  1 03:32:33 PM UTC 2025
+Tue Aug  5 04:12:46 PM UTC 2025
 Kernel IP routing table
 Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
 0.0.0.0         192.168.65.2    0.0.0.0         UG        0 0          0 ens33

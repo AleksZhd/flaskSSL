@@ -105,6 +105,14 @@ def create_ca_cert():
               + " -keyfile " + ca_cert_dir + "/ca.key"
               + " -out " + ca_cert_dir + "/ca.cert"
               + " -batch -notext")
+    if os.system("ls " + ca_cert_dir + "/ca.key") !=0:
+        return ('Something went wrong during CA certificate creation.')
+# sudo openssl ca -gencrl -config root-ca.conf -extensions crl_ext -out crl/crl.pem
+    os.system("echo " + current_user.sudo_password_encoded 
+              + " | sudo -S openssl ca -gencrl"
+              + " -config " + root_ca_conf
+              + " -extensions crl_ext"
+              + " -out " + get_pki_dir()[1] +"/crl/crl.pem")
     return error
 
 def get_ca_cert_info():

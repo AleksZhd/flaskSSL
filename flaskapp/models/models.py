@@ -1,19 +1,20 @@
-from email.policy import default
 from flask_login import UserMixin
 from flaskapp import login_manager, app, db
 
-# do not use it, maybe in future
-class PKIstrcut(db.Model):
+
+class OVPN_INFO(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String(10))
-    status = db.Column(db.Boolean, default = False)
-    main_dir =  db.Column(db.String(50) ,default = "/etc/myPKI/")
-    root_ca_dir = db.Column(db.String(50) ,default = "RootCA")
-    root_ca_certs = db.Column(db.String(50) ,default = "DataBase/certs")
-    root_ca_new_certs = db.Column(db.String(50) ,default = "DataBase/certs")
-    root_ca_database_file = db.Column(db.String(50) ,default = "DataBase/index.txt")
-    root_ca_serial_file = db.Column(db.String(50) ,default = "DataBase/serial")
-    root_ca_serial_init_value = db.Column(db.String(20) ,default = "19530606AB0001")
+    name  = db.Column(db.String(30), unique = True)
+    main_dir = db.Column(db.String(30), default = '/etc/openvpn')
+    main_dir_set = db.Column(db.Boolean, default = False)
+    server_file = db.Column(db.String(30), default = '/server.conf')
+    server_file_set = db.Column(db.Boolean, default = False)
+    client_file = db.Column(db.String(30), default = '/client.conf')
+    client_file_set = db.Column(db.Boolean, default = False)
+    dh_file = db.Column(db.String(30), default = '/dh2048.pem')
+    dh_file_set = db.Column(db.Boolean, default = False)
+    ta_file = db.Column(db.String(30), default = '/ta.key')
+    ta_file_set = db.Column(db.Boolean, default = False)
 
 
 #        web_username = 'admin'
