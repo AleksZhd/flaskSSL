@@ -1,0 +1,6 @@
+client/
+client.conf
+dh2048.pem
+server/
+server.conf
+ta.key

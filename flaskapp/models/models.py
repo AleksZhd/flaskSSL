@@ -5,15 +5,15 @@ from flaskapp import login_manager, app, db
 class OVPN_INFO(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name  = db.Column(db.String(30), unique = True)
-    main_dir = db.Column(db.String(30), default = '/etc/openvpn')
+    main_dir = db.Column(db.String(30), default = '/etc/openvpn/')
     main_dir_set = db.Column(db.Boolean, default = False)
-    server_file = db.Column(db.String(30), default = '/server.conf')
+    server_file = db.Column(db.String(30), default = 'server.conf')
     server_file_set = db.Column(db.Boolean, default = False)
-    client_file = db.Column(db.String(30), default = '/client.conf')
+    client_file = db.Column(db.String(30), default = 'client.conf')
     client_file_set = db.Column(db.Boolean, default = False)
-    dh_file = db.Column(db.String(30), default = '/dh2048.pem')
+    dh_file = db.Column(db.String(30), default = 'dh2048.pem')
     dh_file_set = db.Column(db.Boolean, default = False)
-    ta_file = db.Column(db.String(30), default = '/ta.key')
+    ta_file = db.Column(db.String(30), default = 'ta.key')
     ta_file_set = db.Column(db.Boolean, default = False)
 
 

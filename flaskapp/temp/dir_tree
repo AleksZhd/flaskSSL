@@ -1,5 +1,7 @@
 /etc/myPKI
 ├── clients
+│   ├── client_number_two.cert
+│   ├── client_number_two.key
 │   ├── testing_1.cert
 │   ├── testing_1.key
 │   ├── testing_2.cert
@@ -20,7 +22,8 @@
 │       │   ├── 19530606AB0002.pem
 │       │   ├── 19530606AB0003.pem
 │       │   ├── 19530606AB0004.pem
-│       │   └── 19530606AB0005.pem
+│       │   ├── 19530606AB0005.pem
+│       │   └── 19530606AB0006.pem
 │       ├── index.txt
 │       ├── index.txt.attr
 │       ├── index.txt.attr.old
@@ -31,4 +34,4 @@
     ├── server_ovpn.cert
     └── server_ovpn.key
 
-8 directories, 24 files
+8 directories, 27 files

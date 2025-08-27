@@ -46,13 +46,3 @@ def clients_create():
                            dn_keys = dn_keys, 
                            dn_values = dn_values)
  
-@app.route('/testing', methods = ['GET' , 'POST'])
-@login_required
-def testing():
-    text = open('flaskapp/pki/server.conf').read()
-    if request.method == 'POST':
-        text = request.form['text']
-        file = open('config','w')
-        file.write(text)
-        file.close()
-    return render_template('/pki/testing.html', text = text )

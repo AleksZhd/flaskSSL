@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="POST">
+
+<!-- MAIN DIRECTORY-->
+<div class="row pb-2 ms-5">
+
+<div class="col-3">
+   <label for="main_dir" class="h6 form-label">OVPN Main Directory</label>
+   <input type="text" class="form-control" id="main_dir" aria-describedby="main_dir_help" name = "main_directory" value= {{ ovpn.main_dir}}>
+   {% if ovpn.main_dir_set %}
+     <div id="main_dir_help" class="form-text text-success">Directory exists.</div>
+     {% else %}
+     <div id="main_dir_help" class="form-text text-danger">Directory not found.</div>
+   {% endif %}
+</div>
+
+<div class="col-3">
+ <label for="ovpn_tree" class="h6 form-label">Files in main directory:</label>
+ <textarea class="form-control" id="ovpn_tree" name="ovpn_tree" rows="7">{{ovpn_tree}}</textarea>
+</div>
+
+<div class="col-3">
+ <div class="d-grid gap-0">
+  <p class="m-1">&nbsp</p>
+  <button type="submit" id= "install_ovpn" name = "button_pressed" value="install_ovpn" class="btn  btn-danger">Install OpenVPN</button>
+  <p class="m-0">&nbsp</p>
+  <button type="submit" id= "create_files" name = "button_pressed" value="create_files" class="btn  btn-success">Create Files</button>
+ </div>
+</div>
+
+<div class="col-3">
+  <p class="mt-3">"Create Files " will copy server and client configuration templates and make DH and TA files.</p>
+  Warning! Creating DH file can take long time!
+</div>
+</div>
+
+<!-- SERVER FILE--> 
+<div class="row my-5 ms-5">
+ 
+<div class="col-3"> <!-- server col ONE -->
+  <label for="server_file" class="h6 form-label">Server Config File:</label>
+  {% if ovpn.server_file_set %}
+     <div id="server_file_help" class="form-text text-success m-0">File exists.</div>
+     {% else %}
+     <div id="server_file_help" class="form-text text-danger m-0">File not found.</div>
+  {% endif %}
+ </div>
+ 
+ <div class="col-3"> <!-- server col TWO -->
+   <input type="text" class="form-control" id="server_file" aria-describedby="server_file_help" name = "server_file" value= {{ ovpn.server_file}}>
+ </div>
+ 
+ <div class="col-3"> <!-- server col THREE -->
+  <div class="d-grid gap-0">
+  <button type="submit" name = "button_pressed" value="set_server_file" class="btn btn-success">Change Server File</button>
+  </div>
+ </div>
+ 
+</div>
+
+</form>
+
+
+{% endblock %}

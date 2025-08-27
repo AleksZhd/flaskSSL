@@ -71,7 +71,7 @@
   </div>
   <!-- end of flashing messages -->
   
-  <div class="col-lg-2">
+  <div class="col-sm-2">
     <div class="container-fluid bg-body-secondary rounded py-2">
     {% if current_user.is_authenticated %}
         <p class="h6 my-0">Web user : {{current_user.web_username}}</p>
@@ -101,7 +101,7 @@
     <!-- vertical menu on left side -->
 
   </div>
-  <div class="col-lg">
+  <div class="col-sm">
     <div class="container-fluid bg-body-secondary rounded">
     {% block content %}
     {% endblock %}
