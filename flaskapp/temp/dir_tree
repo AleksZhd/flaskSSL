@@ -1,13 +1,15 @@
-/etc/myPKI
+/etc/PKI
 ├── clients
-│   ├── client_number_two.cert
-│   ├── client_number_two.key
-│   ├── testing_1.cert
-│   ├── testing_1.key
-│   ├── testing_2.cert
-│   ├── testing_2.key
-│   ├── testing_3.cert
-│   └── testing_3.key
+│   ├── aleksandr.cert
+│   ├── aleksandr.key
+│   ├── gleb.cert
+│   ├── gleb.key
+│   ├── illya.cert
+│   ├── illya.key
+│   ├── olesya.cert
+│   ├── olesya.key
+│   ├── tim.cert
+│   └── tim.key
 ├── crl
 │   ├── crlnumber
 │   ├── crlnumber.old
@@ -23,7 +25,8 @@
 │       │   ├── 19530606AB0003.pem
 │       │   ├── 19530606AB0004.pem
 │       │   ├── 19530606AB0005.pem
-│       │   └── 19530606AB0006.pem
+│       │   ├── 19530606AB0006.pem
+│       │   └── 19530606AB0007.pem
 │       ├── index.txt
 │       ├── index.txt.attr
 │       ├── index.txt.attr.old
@@ -31,7 +34,7 @@
 │       ├── serial
 │       └── serial.old
 └── server
-    ├── server_ovpn.cert
-    └── server_ovpn.key
+    ├── server_open_vpn_vrn.cert
+    └── server_open_vpn_vrn.key
 
-8 directories, 27 files
+8 directories, 30 files

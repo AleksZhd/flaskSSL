@@ -1,0 +1,6 @@
+○ openvpn@erver.service - OpenVPN connection to erver
+     Loaded: loaded (/usr/lib/systemd/system/openvpn@.service; disabled; preset: enabled)
+     Active: inactive (dead)
+       Docs: man:openvpn(8)
+             https://community.openvpn.net/openvpn/wiki/Openvpn24ManPage
+             https://community.openvpn.net/openvpn/wiki/HOWTO

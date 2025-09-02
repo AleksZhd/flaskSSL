@@ -34,6 +34,7 @@ def install_ovpn():
     #root directory
     os.chdir('/')
     os.system("echo " + current_user.sudo_password_encoded + " | sudo -S apt update")
+    os.system("echo " + current_user.sudo_password_encoded + " | sudo -S apt remove openvpn -y")
     os.system("echo " + current_user.sudo_password_encoded + " | sudo -S apt install openvpn -y")
     return error  
 
