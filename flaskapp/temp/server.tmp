@@ -84,8 +84,8 @@ dev tun
 # See openvpn-examples man page for a
 # configuration example.
 ca /etc/myPKI/RootCA/CA/ca.cert
-cert server.crt
-key server.key  # This file should be kept secret
+cert /etc/myPKI/server_ovpn.cert
+key /etc/myPKI/server_ovpn.key
 
 # Diffie hellman parameters.
 # Generate your own with:

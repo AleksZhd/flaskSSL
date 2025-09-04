@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="POST">
+ <input type="text" class="form-control" id="set_name"  name = "set_name">
+ <input type="text" class="form-control" id="set_value"  name = "set_value">
+ <input type="text" class="form-control" id="set_comment"  name = "set_comment">
+ <button type="submit" name = "button_pressed" value="add" class="btn btn-success mx-2">Add</button>
+          
+{% for row in all_settings%}
+   <p> {{row.name}} : {{row.value}} : {{row.comment}} 
+<!--   <button type="submit" name = "button_pressed" value="edit_{{row.name}}" class="btn btn-success mx-2">Edit</button> -->
+   <button type="submit" name = "button_pressed" value="delete_{{row.name}}" class="btn btn-danger mx-2">Delete</button>
+   </p>
+{% endfor %}
+
+</form>
+
+{% endblock %}

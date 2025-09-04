@@ -5,7 +5,7 @@
 <div class="row pt-2">
 
 <div class="col-3"> 
-  <button type="button"  class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#configOVPN">Config OpenVPN</button>
+  <button type="button"  class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#configOVPN">Edit conf file</button>
   <button type="submit" id= "copy_certs" name = "button_pressed" value="copy_certs" class="btn  btn-success">Copy Certs</button>
         <!-- Modals must be inside form !!! -->
         <!-- Modal for delete -->
@@ -18,7 +18,7 @@
               </div>
               <div class="modal-body">
                 HERE WILL BE TXT
-                <textarea class="form-control" name="text" rows="10">{{config_file}}</textarea>
+                <textarea class="form-control" name="conf_string" rows="16">{{config_file}}</textarea>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
