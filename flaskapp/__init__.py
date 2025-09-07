@@ -20,4 +20,4 @@ from flaskapp.auth import auth
 from flaskapp.network import network
 from flaskapp.sudo import sudo
 from flaskapp.pki import pki, ca, server, clients
-from flaskapp.ovpn import ovpn_config, ovpn_server
+from flaskapp.ovpn import ovpn_config, ovpn_server, ovpn_clients

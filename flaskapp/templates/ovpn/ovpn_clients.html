@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+OVPN Clients
+<form method = 'POST'>
+
+ <div class="mb-4">
+  <label for="ip_address" class="h5 form-label">IP Address: </label>
+  <input type="text" class="form-control" id="ip_address" aria-describedby="ip_address_help" name = "ip_address" value="{{ ip_address }}">
+  <div id="ip_address_help" class="form-text">IP address and port of server (external address should be used to connect outside LAN).</div>
+ </div>
+
+ <div class="row">
+ <div class="col-3">
+  <div class="d-grid gap-2">
+    Clients Certificates:
+    {% for client in clients_list %}
+     <a class="btn btn-secondary" href=#">{{ client }}</a>
+    {% endfor %}
+   </div>
+  </div>
+
+<div class="col-3">
+  <div class="d-grid gap-2">
+    Clients OVPN files:
+    {% for client in clients_list %}
+     <button class="btn btn-secondary" type="submit" name="button_pressed" value="recreate_{{ client}}">{{ client }}</button>
+    {% endfor %}
+   </div>
+  </div>
+
+
+<div class="col-3">
+  <div class="d-grid gap-2">
+    Clients OVPN files:
+    {% for client_file in clients_ovpn_list %}
+     <button class="btn btn-secondary" type="submit" name="button_pressed" value="change_{{ client}}">{{ client_file }}</button>
+    {% endfor %}
+   </div>
+  </div>
+</div>
+
+</div>
+ </form>
+
+{% endblock %}

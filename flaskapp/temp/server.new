@@ -22,18 +22,18 @@
 
 # Which local IP address should OpenVPN
 # listen on? (optional)
-local 192.168.65.155
+;local a.b.c.d
 
 # Which TCP/UDP port should OpenVPN listen on?
 # If you want to run multiple OpenVPN instances
 # on the same machine, use a different port
 # number for each one.  You will need to
 # open up this port on your firewall.
-port 13194
+port 1194
 
 # TCP or UDP server?
-proto tcp
-;proto udp
+;proto tcp
+proto udp
 
 # "dev tun" will create a routed IP tunnel,
 # "dev tap" will create an ethernet tunnel.
@@ -83,9 +83,9 @@ dev tun
 # and use the peer-fingerprint option.
 # See openvpn-examples man page for a
 # configuration example.
-ca /etc/PKI/RootCA/CA/ca.cert
-cert /etc/PKI/server/server_open_vpn_vrn.cert
-key /etc/PKI/server/server_open_vpn_vrn.key
+ca /etc/newPKI/RootCA/CA/ca.cert
+cert /etc/newPKI/server/ovpn_server.cert
+key /etc/newPKI/server/ovpn_server.key
 
 # Diffie hellman parameters.
 # Generate your own with:
@@ -112,7 +112,7 @@ topology subnet
 # Each client will be able to reach the server
 # on 10.8.0.1. Comment this line out if you are
 # ethernet bridging. See the man page for more info.
-server 10.45.0.0 255.255.255.0
+server 10.108.0.0 255.255.255.0
 
 # Maintain a record of client <-> virtual IP address
 # associations in this file.  If OpenVPN goes down or

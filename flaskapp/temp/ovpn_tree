@@ -1,7 +1,7 @@
 client/
 client.conf
+clients_ovpn/
 dh2048.pem
 server/
 server.conf
 ta.key
-test.conf

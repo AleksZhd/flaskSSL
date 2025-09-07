@@ -1,4 +1,4 @@
-/etc/PKI
+/etc/newPKI
 ├── clients
 │   ├── aleksandr.cert
 │   ├── aleksandr.key
@@ -34,7 +34,7 @@
 │       ├── serial
 │       └── serial.old
 └── server
-    ├── server_open_vpn_vrn.cert
-    └── server_open_vpn_vrn.key
+    ├── ovpn_server.cert
+    └── ovpn_server.key
 
 8 directories, 30 files

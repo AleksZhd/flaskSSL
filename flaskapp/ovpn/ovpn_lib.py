@@ -17,11 +17,13 @@ def create_files(id=1):
 # cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf /etc/openvpn/server.conf
     os.system("echo " + current_user.sudo_password_encoded + " | sudo -S cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf /etc/openvpn/server.conf")
 # cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf /etc/openvpn/client.conf
-    os.system("echo " + current_user.sudo_password_encoded + " | sudo -S cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf /etc/openvpn/client.conf")
+#    os.system("echo " + current_user.sudo_password_encoded + " | sudo -S cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf /etc/openvpn/client.conf")
 # openvpn --genkey secret ta.key
     os.system("echo " + current_user.sudo_password_encoded + " | sudo -S openvpn --genkey secret ta.key")
 # openssl dhparam -out dh2048.pem 2048
     os.system("echo " + current_user.sudo_password_encoded + " | sudo -S openssl dhparam -out dh2048.pem 2048")
+# making directory for clients ovpn configuration files
+    os.system("echo " + current_user.sudo_password_encoded + " | sudo -S mkdir " + OVPN.main_dir + "clients_ovpn")
     return error
 
 
