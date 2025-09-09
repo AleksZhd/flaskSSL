@@ -13,7 +13,7 @@
 <!-- NAV BAR STARTS HERE -->
 <nav class="navbar navbar-expand-sm bg-body-secondary my-1 rounded">
 <div class="container-fluid"> <!-- container for nav bar -->
-    <a class="navbar-brand" href="{{ url_for('index') }}">OVPN</a>
+    <a class="navbar-brand" href="{{ url_for('index') }}">OVPN Ubuntu 24.04</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -90,15 +90,15 @@
     <div class="d-grid gap-1">
       <a class="h6 mt-2"> Certificates Management </a>
       <a class="btn btn-primary btn-sm m-0" href="{{ url_for('pki') }}">Public Key Infrastructure</a>
-      <a class="btn btn-primary btn-sm m-0" href="{{ url_for('ca') }}">Certificate Authority</a>
-      <a class="btn btn-primary btn-sm m-0" href="{{ url_for('server') }}">Server</a>
-      <a class="btn btn-primary btn-sm m-0" href="{{ url_for('clients') }}">Clients</a>
-      <a class="btn btn-primary btn-sm m-0" href="#">Revocation</a>
+      <a class="btn btn-primary btn-sm m-0 text-end ms-3" href="{{ url_for('ca') }}">Certificate Authority</a>
+      <a class="btn btn-primary btn-sm m-0 text-end ms-5" href="{{ url_for('server') }}">Server</a>
+      <a class="btn btn-primary btn-sm m-0 text-end ms-5" href="{{ url_for('clients') }}">Clients</a>
+      <a class="btn btn-primary btn-sm m-0 text-end ms-5" href="#">Revocation</a>
       <a class="h6 mt-2"> Open VPN Management </a>
-      <a class="btn btn-primary btn-sm m-0" href="{{ url_for('ovpn_config') }}">OVPN Configuration</a>
-      <a class="btn btn-primary btn-sm m-0" href="{{ url_for('ovpn_server') }}">OVPN Server</a>
-      <a class="btn btn-primary btn-sm m-0" href="{{ url_for('ovpn_server_logs') }}">OVPN Server logs</a>
-      <a class="btn btn-primary btn-sm m-0" href="{{ url_for('ovpn_clients') }}">OVPN Clients</a>
+      <a class="btn btn-primary btn-sm m-0 text-end" href="{{ url_for('ovpn_config') }}">Configuration OVPN</a>
+      <a class="btn btn-primary btn-sm m-0 text-end" href="{{ url_for('ovpn_server') }}">Server</a>
+      <a class="btn btn-primary btn-sm m-0 text-end" href="{{ url_for('ovpn_server_logs') }}">Server logs</a>
+      <a class="btn btn-primary btn-sm m-0 text-end" href="{{ url_for('ovpn_clients') }}">Clients</a>
     </div>
     {% endif %}
     <!-- vertical menu on left side -->

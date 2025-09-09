@@ -1,4 +1,5 @@
 from http import client
+import ipaddress
 from flaskapp.pki.pki_lib import get_pki_dir
 from flaskapp.sudo.sudo_lib import sudo_timestemp_reset 
 from flaskapp.pki.server_client_lib import get_srvr_clnt_list
@@ -69,7 +70,15 @@ def create_ovpn_file_client(client_cert=''):
     ta_file = OVPN.main_dir + "ta.key"
     ta_key = os.popen("echo " + current_user.sudo_password_encoded + " | sudo -S cat " + ta_file).read().strip()
     client_tmpl = client_tmpl[:client_tmpl.find('\n<tls-auth>\n')+12] + ta_key + client_tmpl[client_tmpl.find('\n</tls-auth>\n'):]
-    #
+    # changing ip address and port number:
+    ip_address = client_tmpl[client_tmpl.find("\nremote")+1:] #from "\nremote" to the end of the file without first "\n"
+    ip_address = ip_address[:ip_address.find("\n")] #now cutting evrething from the next "\n" to the end of the file
+    # new ip addrees from the file by splitting at ":" , we got a list. index 0 - ip, index 1 - port number
+    new_ip_address_list = open(app.root_path + "/ovpn/templates/ip_address").read().split(':')
+    # making new ip address and port number string
+    new_ip_address = "remote " + new_ip_address_list[0] + " " + new_ip_address_list[1]
+    # replacing :
+    client_tmpl = client_tmpl.replace(ip_address, new_ip_address)
     file = open(TMPL_DIR+client_ovpn,'w')
     file.write(client_tmpl)
     file.close

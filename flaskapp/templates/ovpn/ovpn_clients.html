@@ -16,16 +16,16 @@ OVPN Clients
   <div class="d-grid gap-2">
     Clients Certificates:
     {% for client in clients_list %}
-     <a class="btn btn-secondary" href=#">{{ client }}</a>
+     <a class="btn btn-outline-dark disabled" >{{ client }}</a>
     {% endfor %}
    </div>
   </div>
 
-<div class="col-3">
+<div class="col-2">
   <div class="d-grid gap-2">
-    Clients OVPN files:
+    Make .ovpn file:
     {% for client in clients_list %}
-     <button class="btn btn-secondary" type="submit" name="button_pressed" value="recreate_{{ client}}">{{ client }}</button>
+     <button class="btn btn-secondary" type="submit" name="button_pressed" value="recreate_{{ client}}">ReCreate File  ></button>
     {% endfor %}
    </div>
   </div>
@@ -33,15 +33,36 @@ OVPN Clients
 
 <div class="col-3">
   <div class="d-grid gap-2">
-    Clients OVPN files:
+    Edit .ovpn file:
     {% for client_file in clients_ovpn_list %}
-     <button class="btn btn-secondary" type="submit" name="button_pressed" value="change_{{ client}}">{{ client_file }}</button>
+    {% if client_file == "File is not found" %}
+    <button class="btn btn-danger" type="submit" name="button_pressed" value="edit_{{ client_file }}">{{ client_file }}</button>
+    {% else %}
+    <button class="btn btn-success" type="submit" name="button_pressed" value="edit_{{ client_file }}">{{ client_file }}</button>
+    {% endif %}
+     
     {% endfor %}
    </div>
   </div>
-</div>
+
+<div class="col-2">
+  <div class="d-grid gap-2">
+    Download .ovpn file:
+    {% for client_file in clients_ovpn_list %}
+     <button class="btn btn-info" type="submit" name="button_pressed" value="download_{{ client_file }}">Download File</button>
+    {% endfor %}
+   </div>
+  </div>
+
 
 </div>
+
  </form>
+ 
+ <div class="row">
+  <p>
+
+  </p>
+ </div>
 
 {% endblock %}

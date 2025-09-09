@@ -1,15 +1,7 @@
-/etc/newPKI
+/etc/test
 ├── clients
 │   ├── aleksandr.cert
-│   ├── aleksandr.key
-│   ├── gleb.cert
-│   ├── gleb.key
-│   ├── illya.cert
-│   ├── illya.key
-│   ├── olesya.cert
-│   ├── olesya.key
-│   ├── tim.cert
-│   └── tim.key
+│   └── aleksandr.key
 ├── crl
 │   ├── crlnumber
 │   ├── crlnumber.old
@@ -22,11 +14,7 @@
 │       ├── certs
 │       │   ├── 19530606AB0001.pem
 │       │   ├── 19530606AB0002.pem
-│       │   ├── 19530606AB0003.pem
-│       │   ├── 19530606AB0004.pem
-│       │   ├── 19530606AB0005.pem
-│       │   ├── 19530606AB0006.pem
-│       │   └── 19530606AB0007.pem
+│       │   └── 19530606AB0003.pem
 │       ├── index.txt
 │       ├── index.txt.attr
 │       ├── index.txt.attr.old
@@ -34,7 +22,7 @@
 │       ├── serial
 │       └── serial.old
 └── server
-    ├── ovpn_server.cert
-    └── ovpn_server.key
+    ├── novigrad_ovpn_server.cert
+    └── novigrad_ovpn_server.key
 
-8 directories, 30 files
+8 directories, 18 files

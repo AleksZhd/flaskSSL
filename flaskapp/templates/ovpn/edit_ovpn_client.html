@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p class="h6 py-2"> {{ file_name }} </p>
+
+<form method="POST">
+ <div class="row">
+
+  <div class="col-2">
+   <div class="d-grid gap-2">
+    <button class="btn btn-secondary " type="submit" name="button_pressed" value="back">Back</button>
+    <button class="btn btn-success" type="submit" name="button_pressed" value="save">Save</button>
+   </div>
+  </div>
+
+  <div class="col-9">
+   <textarea class="form-control" name="file_string" rows="18">{{ file_string }}</textarea>
+  </div>
+
+ </div>
+</form>
+
+<div class="row">
+  <p>
+  </p>
+ </div>
+
+
+{% endblock %}

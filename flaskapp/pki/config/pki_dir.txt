@@ -1,1 +1,1 @@
-/etc/newPKI
+/etc/test
