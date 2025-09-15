@@ -1,0 +1,5 @@
+pip install gunicorn
+
+# run in derictory with the project:
+gunicorn -w 3 run:app
+# start should be in virtual python environment

@@ -1,5 +1,6 @@
 from http import client
 import ipaddress
+from flaskapp.ovpn.ovpn_server_lib import read_server_conf
 from flaskapp.pki.pki_lib import get_pki_dir
 from flaskapp.sudo.sudo_lib import sudo_timestemp_reset 
 from flaskapp.pki.server_client_lib import get_srvr_clnt_list
@@ -10,6 +11,21 @@ from flaskapp.models.models import OVPN_INFO
 
 CLIENT_TMPL_FILE =  app.root_path + "/ovpn/templates/client.tmpl"
 TMPL_DIR = app.root_path + "/ovpn/templates/"
+
+def get_protocol():
+    error = 'NONE'
+    tcp_protocol = False
+    # reading server config into the string
+    error, server_config = read_server_conf(id=1)
+    if error != 'NONE':
+        return error, tcp_protocol
+    # finfing uncommented "proto" string:
+    begining_protocol = server_config[server_config.find("\nproto")+1:]
+    protocol = begining_protocol[:begining_protocol.find("\n")]
+    # checking if the string has tcp inside:
+    if protocol.find("tcp") !=-1:
+        tcp_protocol = True
+    return error, tcp_protocol
 
 def get_ovpn_clients_files(clients_cert_list=[]):
     # function recives clients certificates list and tryes to find ovpn configuration files
@@ -31,7 +47,7 @@ def get_ovpn_clients_files(clients_cert_list=[]):
         x += 1
     return error , clients_ovpn_list
 
-def create_ovpn_file_client(client_cert=''):
+def create_ovpn_file_client(client_cert='',protocol='udp'):
     error  = "NONE"
     if not sudo_timestemp_reset():
         error = 'Please check/reset SUDO password'
@@ -77,8 +93,15 @@ def create_ovpn_file_client(client_cert=''):
     new_ip_address_list = open(app.root_path + "/ovpn/templates/ip_address").read().split(':')
     # making new ip address and port number string
     new_ip_address = "remote " + new_ip_address_list[0] + " " + new_ip_address_list[1]
-    # replacing :
+    # replacing ip address:
     client_tmpl = client_tmpl.replace(ip_address, new_ip_address)
+    # changing protocol:
+    proto_string = client_tmpl[client_tmpl.find("\nproto")+1:] # from "\nproto" to the end of the file without first "\n"
+    proto_string = proto_string[:proto_string.find("\n")] # now cutting evrething from the next "\n" to the end of the file
+    new_proto_string = "proto " + protocol
+    # replacing protocol:
+    client_tmpl = client_tmpl.replace(proto_string, new_proto_string)
+    # saving into the file
     file = open(TMPL_DIR+client_ovpn,'w')
     file.write(client_tmpl)
     file.close

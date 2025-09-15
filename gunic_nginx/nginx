@@ -1,0 +1,18 @@
+# cretae file  sudo nano /etc/nginx/sites-enabled/flaskSSL
+# and put inside:
+server {
+        listen 80;
+        server_name 192.168.65.155;
+
+        location  /static {
+                alias /home/aleks/flaskSSL/flaskapp/static/ ;
+                }
+
+        location / {
+                proxy_pass http://localhost:8000;
+                include /etc/nginx/proxy_params;
+                proxy_redirect off;
+        }
+
+}
+
