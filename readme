@@ -1,0 +1,6 @@
+1. Create virtual environment:
+	python3 -m venv .venv
+2. Install all packages:
+	pip install -r requirments.txt
+3. Start server:
+	bash start
