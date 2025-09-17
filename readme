@@ -1,3 +1,6 @@
+Ubuntu 24 only!
+0. Install app:
+	sudo apt install net-tools tree python3-venv
 1. Create virtual environment:
 	python3 -m venv .venv
 2. Change to venv:

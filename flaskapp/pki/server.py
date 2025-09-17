@@ -48,4 +48,5 @@ def server_create():
             return redirect (url_for("server")) 
     return render_template('/pki/server_create.html', 
                            dn_keys = dn_keys, 
-                           dn_values = dn_values)
+                           dn_values = dn_values,
+                           server=True)

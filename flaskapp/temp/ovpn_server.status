@@ -1,6 +1,6 @@
 ● openvpn@server.service - OpenVPN connection to server
      Loaded: loaded (/usr/lib/systemd/system/openvpn@.service; enabled-runtime; preset: enabled)
-     Active: active (running) since Wed 2025-09-17 16:43:54 UTC; 16min ago
+     Active: active (running) since Wed 2025-09-17 16:43:54 UTC; 2h 4min ago
        Docs: man:openvpn(8)
              https://community.openvpn.net/openvpn/wiki/Openvpn24ManPage
              https://community.openvpn.net/openvpn/wiki/HOWTO
@@ -8,7 +8,7 @@
      Status: "Initialization Sequence Completed"
       Tasks: 1 (limit: 10)
      Memory: 2.7M (peak: 3.0M)
-        CPU: 110ms
+        CPU: 251ms
      CGroup: /system.slice/system-openvpn.slice/openvpn@server.service
              └─1339 /usr/sbin/openvpn --daemon ovpn-server --status /run/openvpn/server.status 10 --cd /etc/openvpn --script-security 2 --config /etc/openvpn/server.conf --writepid /run/openvpn/server.pid
 

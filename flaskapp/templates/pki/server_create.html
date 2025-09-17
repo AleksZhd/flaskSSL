@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p class="h3">Creating Server Certificate</p>
+{% if server == True %}
+ {% set entety = "Server" %}
+{% else %}
+ {% set entety = "Client" %}   
+{% endif %}
+
+<p class="h3">Creating {{ entety }} Certificate</p>
 <form method = "POST">
 
 {% for key in dn_keys %}
@@ -16,7 +22,7 @@
 </dev>
 {% endfor %}
 
-    <button type="submit" class="btn btn-success m-3">Create Server Cert</button>
+    <button type="submit" class="btn btn-success m-3">Create {{ entety }}  Certificate</button>
 </form>
 
 {% endblock %}
