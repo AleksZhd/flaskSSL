@@ -1,4 +1,4 @@
-Wed Sep 17 05:00:31 PM UTC 2025
+Wed Sep 17 05:12:45 PM UTC 2025
 Active Internet connections (servers and established)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
 tcp        0      0 127.0.0.54:53           0.0.0.0:*               LISTEN      914/systemd-resolve 
@@ -8,14 +8,12 @@ tcp        0      0 0.0.0.0:32100           0.0.0.0:*               LISTEN      
 tcp        0      0 127.0.0.1:38389         0.0.0.0:*               LISTEN      1918/code-6f1763612 
 tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      1345/nginx: master  
 tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1/init              
-tcp        0      0 0.0.0.0:5000            0.0.0.0:*               LISTEN      4670/python         
+tcp        0      0 0.0.0.0:5000            0.0.0.0:*               LISTEN      5882/python         
+tcp        0      0 192.168.65.155:5000     192.168.65.1:19847      ESTABLISHED 5883/python         
 tcp        0      0 192.168.65.155:22       192.168.65.1:37283      ESTABLISHED 1848/sshd: aleks [p 
-tcp        0      0 192.168.65.155:5000     192.168.65.1:64299      ESTABLISHED 4671/python         
-tcp        0      0 192.168.65.155:5000     192.168.65.1:18629      TIME_WAIT   -                   
 tcp        0      0 127.0.0.1:38389         127.0.0.1:60240         ESTABLISHED 1918/code-6f1763612 
-tcp        0      0 192.168.65.155:5000     192.168.65.1:58044      TIME_WAIT   -                   
 tcp        0      0 192.168.65.155:22       192.168.65.1:50791      ESTABLISHED 4322/sshd: aleks [p 
 tcp        0      0 127.0.0.1:60240         127.0.0.1:38389         ESTABLISHED 1899/sshd: aleks@no 
-tcp        0      0 192.168.65.155:5000     192.168.65.1:7713       ESTABLISHED 4671/python         
+tcp        0      0 192.168.65.155:5000     192.168.65.1:6384       ESTABLISHED 5883/python         
 udp        0      0 127.0.0.54:53           0.0.0.0:*                           914/systemd-resolve 
 udp        0      0 127.0.0.53:53           0.0.0.0:*                           914/systemd-resolve 
