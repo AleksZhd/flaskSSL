@@ -2,15 +2,6 @@
 
 {% block content %}
 
-OVPN Clients
-<form method = 'POST'>
-
- <div class="row mx-1">
-  <label for="ip_address" class="h5 form-label">IP Address: </label>
-  <input type="text" class="form-control" id="ip_address" aria-describedby="ip_address_help" name = "ip_address" value="{{ ip_address }}">
-  <div id="ip_address_help" class="form-text">IP address and port of server (external address should be used to connect outside LAN).</div>
- </div>
-
 {% if tcp_protocol == True %}
  {% set tcp_check = "checked" %}
  {% set udp_check = "" %}
@@ -19,19 +10,56 @@ OVPN Clients
  {% set udp_check = "checked" %}
 {% endif %}
 
-<div class="row m-1"> 
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="radio_button" id="radio_udp" value="udp" {{ udp_check}}>
-  <label class="form-check-label" for="radio_udp">
-    UDP protocol
-  </label>
+{% if push_dns == True %}
+ {% set switch_set = "checked" %}
+{% else %}
+ {% set switch_set = "" %}
+{% endif %}
+
+
+OVPN Clients
+<form method = 'POST'>
+
+<div class="row mx-1 mb-5">
+
+<div class="col-3">
+  <label for="ip_address" class="h5 form-label">IP Address: </label>
+  <input type="text" class="form-control" id="ip_address" aria-describedby="ip_address_help" name = "ip_address" value="{{ ip_address }}">
+  <div id="ip_address_help" class="form-text">IP address and port of the server (external address should be used to connect outside LAN).</div>
 </div>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="radio_button" id="radio_tcp" value="tcp" {{ tcp_check }}>
-  <label class="form-check-label" for="radio_tcp">
-    TCP protocol
-  </label>
+
+<div class="col-2 ps-4">
+  <div class="h6"> Protocol:</div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="radio_button" id="radio_udp" value="udp" {{ udp_check}}>
+    <label class="form-check-label" for="radio_udp">
+     UDP
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="radio_button" id="radio_tcp" value="tcp" {{ tcp_check }}>
+    <label class="form-check-label" for="radio_tcp">
+     TCP
+    </label>
+  </div>
 </div>
+
+<div class="col-3">
+  <div class="h6"> Push DNS to clients:</div>
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" name="dns_switch" {{ switch_set }}>
+    <label class="form-check-label" for="switchCheckDefault">Yes</label>
+  </div>
+</div>
+
+<div class="col-3">
+  <label for="dns_address" class="h6 form-label">DNS Address: </label>
+  <input type="text" class="form-control" id="dns_address" name = "dns_address" value="{{ dns_address }}">
+
+  <label for="search_domain" class="h6 form-label">Search Domain: </label>
+  <input type="text" class="form-control" id="search_domain" name = "search_domain" value="{{ search_domain }}">
+</div>
+
 </div>
 
  <div class="row">

@@ -11,6 +11,8 @@ from flask_login import current_user
 @app.route('/ovpn_clients', methods = ['POST' , 'GET'])
 @login_required
 def ovpn_clients():
+
+ # GET section:
     # reading clients certificates list from PKI:
     error, clients_list = get_srvr_clnt_list("/clients/")
     if error != 'NONE':
@@ -26,8 +28,19 @@ def ovpn_clients():
     error, tcp_protocol = get_protocol()
     if error != 'NONE':
         flash (error, 'danger')
-    # POST section:
+    # reading push_dns
+    push_dns = False
+    if (open(app.root_path + "/ovpn/templates/push_dns").read()) == "True":
+        push_dns = True
+    #dns address:
+    dns_address = open(app.root_path + "/ovpn/templates/dhcp-option_DNS").read()
+    #search domain:
+    search_domain = open(app.root_path + "/ovpn/templates/dhcp-option_DOMAIN").read()
+
+ # POST section:
     if request.method == 'POST':
+
+        #recreating ovpn file:
         if request.form['button_pressed'].find('recreate_') !=-1:
             # rewriting ip address file
             ip_address = request.form['ip_address']
@@ -39,10 +52,32 @@ def ovpn_clients():
             file_name = file_name[file_name.find('recreate_')+9:]
             # reading protocol from radio button:
             protocol = request.form['radio_button']
-            error = create_ovpn_file_client(file_name, protocol)
+            # do we need add DNS options:
+            add_dns = False
+            file = open (app.root_path + "/ovpn/templates/push_dns" , "w")
+            if request.form.get('dns_switch'): # when switch is OFF it does not send any information and using standard request.form['dns_switch'] will trigger error badKey something
+                add_dns = True
+                file.write("True")
+            else:    
+                file.write("False")
+            file.close()
+            # rewriting DNS address
+            dns_address = request.form['dns_address']
+            file = open (app.root_path + "/ovpn/templates/dhcp-option_DNS" , "w")
+            file.write(dns_address)
+            file.close()
+            # rewriting search DOMAIN
+            search_domain = request.form['search_domain']
+            file = open (app.root_path + "/ovpn/templates/dhcp-option_DOMAIN" , "w")
+            file.write(search_domain)
+            file.close()
+            error = create_ovpn_file_client(file_name, protocol,add_dns)
             if error != 'NONE':
                 flash (error, 'danger')
             return redirect(url_for ('ovpn_clients'))
+            
+
+        # editing existing ovpn file
         if request.form['button_pressed'].find('edit_') !=-1:
             if request.form['button_pressed'] == "edit_File is not found":
                 flash ("Create .ovpn file first.", 'warning')
@@ -50,6 +85,8 @@ def ovpn_clients():
             file_name  = request.form['button_pressed']
             file_name = file_name[file_name.find('edit_')+5:]
             return redirect(url_for('edit_ovpn_client', file_name = file_name))
+
+        # downloading ovpn file
         if request.form['button_pressed'].find('download_') !=-1:
             if request.form['button_pressed'] == "download_File is not found":
                 flash ("Create .ovpn file first.", 'warning')
@@ -60,12 +97,15 @@ def ovpn_clients():
             file_path = OVPN.main_dir + "clients_ovpn/" + file_name
             return send_file(file_path, as_attachment=True)
             
-
+    # rendering template:
     return render_template('/ovpn/ovpn_clients.html' , 
                            ip_address  = ip_address, 
                            clients_list = clients_list, 
                            clients_ovpn_list = clients_ovpn_list,
-                           tcp_protocol = tcp_protocol)
+                           tcp_protocol = tcp_protocol,
+                           push_dns = push_dns,
+                           dns_address = dns_address,
+                           search_domain = search_domain)
 
 @app.route("/ovpn_client/<file_name>", methods = ['GET' , 'POST'])
 @login_required

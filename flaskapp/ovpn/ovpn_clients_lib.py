@@ -1,5 +1,3 @@
-from http import client
-import ipaddress
 from flaskapp.ovpn.ovpn_server_lib import read_server_conf
 from flaskapp.pki.pki_lib import get_pki_dir
 from flaskapp.sudo.sudo_lib import sudo_timestemp_reset 
@@ -47,7 +45,7 @@ def get_ovpn_clients_files(clients_cert_list=[]):
         x += 1
     return error , clients_ovpn_list
 
-def create_ovpn_file_client(client_cert='',protocol='udp'):
+def create_ovpn_file_client(client_cert='',protocol='udp',add_dns = False):
     error  = "NONE"
     if not sudo_timestemp_reset():
         error = 'Please check/reset SUDO password'
@@ -101,6 +99,20 @@ def create_ovpn_file_client(client_cert='',protocol='udp'):
     new_proto_string = "proto " + protocol
     # replacing protocol:
     client_tmpl = client_tmpl.replace(proto_string, new_proto_string)
+
+    # updating DNS options:
+    # these options must be commented (;) in template file:
+    if add_dns == True:
+        # changing setting only if add_dns=True 
+        dns_string = client_tmpl[client_tmpl.find("\n;dhcp-option DNS")+1:]
+        dns_string = dns_string[:dns_string.find("\n")] 
+        domain_string = client_tmpl[client_tmpl.find("\n;dhcp-option DOMAIN")+1:]
+        domain_string = domain_string[:domain_string.find("\n")] 
+        # reading dns from files:
+        new_dns_string = "dhcp-option DNS " + open (app.root_path + "/ovpn/templates/dhcp-option_DNS").read()
+        new_domain_string = "dhcp-option DOMAIN " +open (app.root_path + "/ovpn/templates/dhcp-option_DOMAIN").read()
+        client_tmpl = client_tmpl.replace(dns_string, new_dns_string)
+        client_tmpl = client_tmpl.replace(domain_string, new_domain_string)
     # saving into the file
     file = open(TMPL_DIR+client_ovpn,'w')
     file.write(client_tmpl)
