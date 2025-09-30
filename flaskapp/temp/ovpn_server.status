@@ -1,18 +1,18 @@
 ● openvpn@server.service - OpenVPN connection to server
      Loaded: loaded (/usr/lib/systemd/system/openvpn@.service; enabled-runtime; preset: enabled)
-     Active: active (running) since Wed 2025-09-17 16:43:54 UTC; 5 days ago
+     Active: active (running) since Sun 2025-09-28 10:05:52 UTC; 8h ago
        Docs: man:openvpn(8)
              https://community.openvpn.net/openvpn/wiki/Openvpn24ManPage
              https://community.openvpn.net/openvpn/wiki/HOWTO
-   Main PID: 1339 (openvpn)
+   Main PID: 1341 (openvpn)
      Status: "Initialization Sequence Completed"
       Tasks: 1 (limit: 10)
-     Memory: 2.7M (peak: 3.0M)
-        CPU: 4.642s
+     Memory: 2.8M (peak: 3.0M)
+        CPU: 388ms
      CGroup: /system.slice/system-openvpn.slice/openvpn@server.service
-             └─1339 /usr/sbin/openvpn --daemon ovpn-server --status /run/openvpn/server.status 10 --cd /etc/openvpn --script-security 2 --config /etc/openvpn/server.conf --writepid /run/openvpn/server.pid
+             └─1341 /usr/sbin/openvpn --daemon ovpn-server --status /run/openvpn/server.status 10 --cd /etc/openvpn --script-security 2 --config /etc/openvpn/server.conf --writepid /run/openvpn/server.pid
 
-Sep 17 16:43:54 web systemd[1]: Starting openvpn@server.service - OpenVPN connection to server...
-Sep 17 16:43:54 web systemd[1]: Started openvpn@server.service - OpenVPN connection to server.
+Sep 28 10:05:52 web systemd[1]: Starting openvpn@server.service - OpenVPN connection to server...
+Sep 28 10:05:52 web systemd[1]: Started openvpn@server.service - OpenVPN connection to server.
 #---- netstat ----#
-tcp        0      0 0.0.0.0:32100           0.0.0.0:*               LISTEN      1339/openvpn        
+tcp        0      0 0.0.0.0:32100           0.0.0.0:*               LISTEN      1341/openvpn        

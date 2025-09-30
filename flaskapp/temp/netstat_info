@@ -1,14 +1,18 @@
-Mon Sep 22 11:56:57 AM UTC 2025
+Sun Sep 28 06:24:30 PM UTC 2025
 Active Internet connections (servers and established)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
-tcp        0      0 127.0.0.54:53           0.0.0.0:*               LISTEN      914/systemd-resolve 
-tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      914/systemd-resolve 
-tcp        0      0 0.0.0.0:32100           0.0.0.0:*               LISTEN      1339/openvpn        
-tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      1345/nginx: master  
+tcp        0      0 127.0.0.54:53           0.0.0.0:*               LISTEN      874/systemd-resolve 
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      874/systemd-resolve 
+tcp        0      0 127.0.0.1:5259          0.0.0.0:*               LISTEN      3169/node           
 tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1/init              
-tcp        0      0 0.0.0.0:5000            0.0.0.0:*               LISTEN      105302/python       
-tcp        0      0 127.0.0.1:4637          0.0.0.0:*               LISTEN      105094/node         
-tcp        0      0 192.168.65.155:5000     192.168.65.1:50968      ESTABLISHED 105305/python       
-tcp        0      0 192.168.65.155:5000     192.168.65.1:61142      ESTABLISHED 105305/python       
-udp        0      0 127.0.0.54:53           0.0.0.0:*                           914/systemd-resolve 
-udp        0      0 127.0.0.53:53           0.0.0.0:*                           914/systemd-resolve 
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      1352/nginx: master  
+tcp        0      0 0.0.0.0:5000            0.0.0.0:*               LISTEN      5158/python         
+tcp        0      0 0.0.0.0:32100           0.0.0.0:*               LISTEN      1341/openvpn        
+tcp        0      0 127.0.0.1:43659         0.0.0.0:*               LISTEN      12255/code-f220831e 
+tcp        0    100 192.168.65.155:22       192.168.65.1:2330       ESTABLISHED 12128/sshd: aleks [ 
+tcp        0     66 127.0.0.1:43659         127.0.0.1:37284         ESTABLISHED 12255/code-f220831e 
+tcp        0      0 192.168.65.155:5000     192.168.65.1:47917      ESTABLISHED 13894/python        
+tcp        0      0 192.168.65.155:5000     192.168.65.1:22267      ESTABLISHED 13894/python        
+tcp        0      0 127.0.0.1:37284         127.0.0.1:43659         ESTABLISHED 12234/sshd: aleks@n 
+udp        0      0 127.0.0.54:53           0.0.0.0:*                           874/systemd-resolve 
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           874/systemd-resolve 
