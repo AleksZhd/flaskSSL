@@ -6,6 +6,7 @@ from flask_login import current_user
 from flaskapp.pki.pki_lib import file_to_list
 
 TEMP_DIR = app.root_path + "/temp/"
+SERVER_CONF_PATH = app.root_path + "/ovpn/templates/server.conf"
 
 def create_files(id=1):
     error = 'NONE'
@@ -15,7 +16,8 @@ def create_files(id=1):
     OVPN = OVPN_INFO.query.filter_by(id=id).first()
     os.chdir(OVPN.main_dir)
 # cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf /etc/openvpn/server.conf
-    os.system("echo " + current_user.sudo_password_encoded + " | sudo -S cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf /etc/openvpn/server.conf")
+#   os.system("echo " + current_user.sudo_password_encoded + " | sudo -S cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf /etc/openvpn/server.conf")
+    os.system("echo " + current_user.sudo_password_encoded + " | sudo -S cp " + SERVER_CONF_PATH + " /etc/openvpn/server.conf")
 # cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf /etc/openvpn/client.conf
 #    os.system("echo " + current_user.sudo_password_encoded + " | sudo -S cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf /etc/openvpn/client.conf")
 # openvpn --genkey secret ta.key

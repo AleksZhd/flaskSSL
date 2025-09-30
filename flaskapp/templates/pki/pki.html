@@ -61,27 +61,26 @@
    <dev class="col-sm-auto mx-1 my-3">
       <p class="h5"> PKI Directories</p>
       {% for line in dir_list %}
-      <pre class="h6 m-0"> {{ line }}</pre>
+      <pre class="h6 m-0"> {{ line[0:60] }}</pre>
       {% endfor %}
    </dev>
 
    <dev class="col-sm-auto mx-1 my-3">
       <p class="h5"> PKI Directories and Files</p>
       {% for line in dir_files_list %}
-      <pre class="h6 m-0"> {{ line }}</pre>
+      <pre class="h6 m-0"> {{ line[0:60] }}</pre>
       {% endfor %}
    </dev>
 </dev>
 <!-- FIRST ROW ENDS -->
-<dev class="container-fluid">
-    <dev class="row">
+<dev class="row">
 
   <p class="h6"> Index file :</p>
   {% for line in index_list %}
-    <pre class="m-0">{{ line }}</pre>
+    <pre class="m-0">{{ line[0:110] }}</pre>
   {% endfor %}
-  </dev>
- </dev>
+</dev>
+
 
 
 {% endblock %}

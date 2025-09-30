@@ -67,7 +67,7 @@ OVPN Clients
   <div class="d-grid gap-2">
     Clients Certificates:
     {% for client in clients_list %}
-     <a class="btn btn-outline-dark disabled" >{{ client }}</a>
+     <a class="btn btn-outline-dark disabled" >{{ client[0:25] }}</a>
     {% endfor %}
    </div>
   </div>
@@ -87,9 +87,9 @@ OVPN Clients
     Edit .ovpn file:
     {% for client_file in clients_ovpn_list %}
     {% if client_file == "File is not found" %}
-    <button class="btn btn-danger" type="submit" name="button_pressed" value="edit_{{ client_file }}">{{ client_file }}</button>
+    <button class="btn btn-danger" type="submit" name="button_pressed" value="edit_{{ client_file }}">{{ client_file[0:25] }}</button>
     {% else %}
-    <button class="btn btn-success" type="submit" name="button_pressed" value="edit_{{ client_file }}">{{ client_file }}</button>
+    <button class="btn btn-success" type="submit" name="button_pressed" value="edit_{{ client_file }}">{{ client_file[0:25] }}</button>
     {% endif %}
      
     {% endfor %}

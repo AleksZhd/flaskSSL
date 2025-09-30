@@ -3,54 +3,73 @@
 {% block content %}
 <p class="h5">DataBase Status:</p>
 <div class="row h6">
-    <div class="col-1"> V/R/E </div>
-    <div class="col-md-auto"> End Date &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </div>
-    <div class="col-md-auto"> Revoke Date &nbsp&nbsp&nbsp&nbsp&nbsp</div>
+    <div class="col-md-auto"> St </div>
+    <div class="col-md-auto"> End Date &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </div>
+    <div class="col-md-auto"> Revoke Date &nbsp&nbsp&nbsp&nbsp</div>
     <div class="col-md-auto"> Serial Number &nbsp&nbsp&nbsp</div>
-    <div class="col-md-auto"> File&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </div>
+<!--    <div class="col-md-auto"> File&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </div>-->
     <div class="col-md-auto"> Distinguished Name </div>
 </div>
 
 {% for string in index_list %}
 <div class="row">
-    {% for item in string %}
-        {% if item == '' %}
-            {% set item = '_________________' %}
-        {% endif %}
-        {% if loop.index0 == 0 %}
-            <div class="col-1"> {{ item }} </div>
-        {% else %}
-            <div class="col-md-auto"> {{ item }} </div>
-        {% endif %}
-    {% endfor %}
+    {% set color_db = 'dark'%}
+    {% if string[0] == 'R' %}
+        {% set color_db = 'danger' %}
+    {% endif %}
+    <div class="col-md-auto text-{{ color_db }}"> {{string[0]}}&nbsp </div>
+    <div class="col-md-auto text-{{ color_db }}"> {{string[1]}} </div>
+    {% if string[2] == '' %}
+        <div class="col-md-auto text-{{ color_db }}"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </div>
+    {% else %}
+        <div class="col-md-auto text-{{ color_db }}"> {{string[2][0:13]}} </div>    
+    {% endif %}
+    <div class="col-md-auto text-{{ color_db }}"> {{string[3]}} </div>
+  <!--  <div class="col-md-auto"> {{string[4]}} </div>-->
+    <div class="col-md-auto text-{{ color_db }}"> {{string[5][0:65]}} </div>
 </div>
 {% endfor %}
+
+
+<form method = 'POST'>
 <p class="h5 mt-4">Clients Certificates:</p>
 <div class="row">
     <div class="col-3 h6"> Revoke Certificate: </div>
     <div class="col-2 h6"> Status: </div>
-    <div class="col-2 h6"> Revocation Date: </div>
+    <div class="col-5 h6"> Revocation Date and Reasons: </div>
 </div>
 
 {% for client_cert in revokation_status_list %}
+{% if client_cert[1] == 'R' %}
+    {% set color = 'danger' %}
+    {% set active = 'disabled' %}
+{% elif client_cert[1] == 'V'%}
+    {% set color = 'success' %}
+    {% set active = '' %}
+{% endif %}
+
 <div class="row">
     <div class="col-3">
     <div class="d-grid gap-2">
-    <a class="btn btn-outline-dark disabled py-1"> {{ client_cert[0] }} </a>
+    <button class="btn btn-outline-{{ color }} {{active}} mb-1" type="submit" name="button_pressed" value="{{ client_cert[0] }}"> {{ client_cert[0][0:25] }} </button>
     </div>
     </div>
     <div class="col-2">
         {% if client_cert[1] == 'V' %}
-            Valid
+            <p class="text-success fw-bold">Valid</p>
         {% elif client_cert[1] == 'R' %}
-            Revoked
+            <p class="text-danger fw-bold">Revoked</p>
         {% endif %}
     </div>
     <div class="col-2">{{ client_cert[2] }}</div>
 </div>
 {% endfor %}
-    
+</form>
 
 
 
+<div class="row">  
+<p class="mb-3"></p>
+</div>
+<p class="mb-2"></p>
 {% endblock %}

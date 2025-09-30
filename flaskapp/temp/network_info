@@ -1,9 +1,9 @@
-Sun Sep 28 06:24:33 PM UTC 2025
+Tue Sep 30 06:48:55 PM UTC 2025
 Kernel IP routing table
 Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
 0.0.0.0         192.168.65.2    0.0.0.0         UG        0 0          0 ens33
+10.8.0.0        0.0.0.0         255.255.255.0   U         0 0          0 tun0
 10.36.0.0       0.0.0.0         255.255.255.0   U         0 0          0 ens33
-10.49.0.0       0.0.0.0         255.255.255.0   U         0 0          0 tun0
 192.168.65.0    0.0.0.0         255.255.255.0   U         0 0          0 ens33
      Online state: online
     DNS Addresses: 127.0.0.53 (stub)
@@ -21,9 +21,9 @@ Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
                    10.36.0.0/24 (boot, link)
                    192.168.65.0/24 from 192.168.65.155 (link)
 
-●  3: tun0 tunnel/tun UNKNOWN/UP (unmanaged)
-        Addresses: 10.49.0.1/24
-           Routes: 10.49.0.0/24 from 10.49.0.1 (link)
+●  6: tun0 tunnel/tun UNKNOWN/UP (unmanaged)
+        Addresses: 10.8.0.1/24
+           Routes: 10.8.0.0/24 from 10.8.0.1 (link)
 Global
          Protocols: -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
   resolv.conf mode: stub
@@ -34,6 +34,6 @@ Link 2 (ens33)
 Current DNS Server: 192.168.65.2
        DNS Servers: 192.168.65.2
 
-Link 3 (tun0)
+Link 6 (tun0)
     Current Scopes: none
          Protocols: -DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported

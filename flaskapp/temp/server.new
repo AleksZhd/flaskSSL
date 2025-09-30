@@ -29,11 +29,11 @@
 # on the same machine, use a different port
 # number for each one.  You will need to
 # open up this port on your firewall.
-port 32100
+port 1194
 
 # TCP or UDP server?
-proto tcp
-;proto udp
+;proto tcp
+proto udp
 
 # "dev tun" will create a routed IP tunnel,
 # "dev tap" will create an ethernet tunnel.
@@ -83,10 +83,10 @@ dev tun
 # and use the peer-fingerprint option.
 # See openvpn-examples man page for a
 # configuration example.
-ca /etc/test/RootCA/CA/ca.cert
-cert /etc/test/server/novigrad_ovpn_server.cert
-key /etc/test/server/novigrad_ovpn_server.key
-crl-verify /etc/test/crl/crl.pem
+ca /etc/PKI/RootCA/CA/ca.cert
+cert /etc/PKI/server/open_vpn_server.cert
+key /etc/PKI/server/open_vpn_server.key
+crl-verify /etc/PKI/crl/crl.pem
 
 # Diffie hellman parameters.
 # Generate your own with:
@@ -113,7 +113,7 @@ topology subnet
 # Each client will be able to reach the server
 # on 10.8.0.1. Comment this line out if you are
 # ethernet bridging. See the man page for more info.
-server 10.49.0.0 255.255.255.0
+server 10.8.0.0 255.255.255.0
 
 # Maintain a record of client <-> virtual IP address
 # associations in this file.  If OpenVPN goes down or

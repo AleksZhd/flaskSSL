@@ -1,5 +1,4 @@
 import os
-
 from flaskapp.pki.pki_lib import get_pki_dir
 from flaskapp.models.models import OVPN_INFO
 from flaskapp.sudo.sudo_lib import sudo_timestemp_reset
@@ -9,7 +8,6 @@ from flask import flash
 
 TEMP_DIR = app.root_path + "/temp/"
 
-# nor working
 def copy_certs():
     error  = "NONE"
     if not sudo_timestemp_reset():
@@ -28,6 +26,10 @@ def copy_certs():
     # setting ca certificate value
     ca_cert = pki_dir + '/RootCA/CA/ca.cert'
     error, config_string = change_setting_value(config_string, 'ca', ca_cert)
+    if error != 'NONE':
+        return error
+    # crl list
+    error, config_string = change_setting_value(config_string, 'crl-verify', pki_dir + "/crl/crl.pem")
     if error != 'NONE':
         return error
     # setting server certificate and key
@@ -73,7 +75,6 @@ def change_setting_value(config_string, the_setting, the_value=''):
     # remaking string from the list
     config_string = '\n'.join(config_list)
     return error, config_string
-# end of not working
 
 def get_server_logs():
     log  = os.popen("echo " + current_user.sudo_password_encoded
