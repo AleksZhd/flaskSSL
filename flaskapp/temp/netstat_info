@@ -1,20 +1,21 @@
-Tue Sep 30 06:49:16 PM UTC 2025
+Wed Oct  1 05:44:22 PM UTC 2025
 Active Internet connections (servers and established)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
-tcp        0      0 127.0.0.1:4470          0.0.0.0:*               LISTEN      2067/node           
-tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      42118/nginx: master 
-tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1/systemd           
-tcp        0      0 127.0.0.1:35623         0.0.0.0:*               LISTEN      34627/code-f220831e 
-tcp        0      0 0.0.0.0:5000            0.0.0.0:*               LISTEN      40001/python        
-tcp        0      0 127.0.0.54:53           0.0.0.0:*               LISTEN      42114/systemd-resol 
-tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      42114/systemd-resol 
-tcp        0      0 192.168.65.155:22       192.168.65.1:18096      ESTABLISHED 34371/sshd: aleks [ 
-tcp        0      0 192.168.65.155:22       192.168.65.1:54446      ESTABLISHED 34547/sshd: aleks [ 
-tcp        0      0 127.0.0.1:50382         127.0.0.1:35623         ESTABLISHED 34608/sshd: aleks@n 
-tcp        0      0 127.0.0.1:35623         127.0.0.1:50382         ESTABLISHED 34627/code-f220831e 
-tcp        0      0 192.168.65.155:5000     192.168.65.1:5246       ESTABLISHED 40004/python        
-tcp        0      0 192.168.65.155:22       192.168.65.1:43449      ESTABLISHED 37906/sshd: aleks [ 
-tcp        0      0 192.168.65.155:5000     192.168.65.1:58462      ESTABLISHED 40004/python        
-udp        0      0 127.0.0.54:53           0.0.0.0:*                           42114/systemd-resol 
-udp        0      0 127.0.0.53:53           0.0.0.0:*                           42114/systemd-resol 
-udp        0      0 0.0.0.0:1194            0.0.0.0:*                           44941/openvpn       
+tcp        0      0 127.0.0.1:43079         0.0.0.0:*               LISTEN      1812/code-e3a5acfb5 
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      792/systemd-resolve 
+tcp        0      0 127.0.0.1:5162          0.0.0.0:*               LISTEN      2149/node           
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1/init              
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      1153/nginx: master  
+tcp        0      0 127.0.0.54:53           0.0.0.0:*               LISTEN      792/systemd-resolve 
+tcp        0      0 0.0.0.0:5000            0.0.0.0:*               LISTEN      2553/python         
+tcp        0      0 192.168.65.155:22       192.168.65.1:30886      ESTABLISHED 3000/sshd: aleks [p 
+tcp        0      0 127.0.0.1:44564         127.0.0.1:5162          ESTABLISHED 1847/node           
+tcp        0      0 192.168.65.155:5000     192.168.65.1:33535      ESTABLISHED 5450/python         
+tcp        0      0 192.168.65.155:5000     192.168.65.1:8132       ESTABLISHED 5450/python         
+tcp        0      0 192.168.65.155:22       192.168.65.1:57072      ESTABLISHED 1730/sshd: aleks [p 
+tcp        0      0 127.0.0.1:43079         127.0.0.1:44710         ESTABLISHED 1812/code-e3a5acfb5 
+tcp        0      0 127.0.0.1:44710         127.0.0.1:43079         ESTABLISHED 1792/sshd: aleks@no 
+tcp        0      0 127.0.0.1:5162          127.0.0.1:44564         ESTABLISHED 2149/node           
+udp        0      0 0.0.0.0:1194            0.0.0.0:*                           1148/openvpn        
+udp        0      0 127.0.0.54:53           0.0.0.0:*                           792/systemd-resolve 
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           792/systemd-resolve 

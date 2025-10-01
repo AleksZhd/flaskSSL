@@ -28,7 +28,6 @@ def get_protocol():
 def get_ovpn_clients_files(clients_cert_list=[]):
     # function recives clients certificates list and tryes to find ovpn configuration files
     clients_ovpn_list = [] * len(clients_cert_list)
-
     error  = "NONE"
     if not sudo_timestemp_reset():
         error = 'Please check/reset SUDO password'
@@ -99,7 +98,6 @@ def create_ovpn_file_client(client_cert='',protocol='udp',add_dns = False):
     new_proto_string = "proto " + protocol
     # replacing protocol:
     client_tmpl = client_tmpl.replace(proto_string, new_proto_string)
-
     # updating DNS options:
     # these options must be commented (;) in template file:
     if add_dns == True:
@@ -122,4 +120,21 @@ def create_ovpn_file_client(client_cert='',protocol='udp',add_dns = False):
               + " | sudo -S mv " + TMPL_DIR + client_ovpn
               + " " 
               + OVPN.main_dir + "clients_ovpn")
+    # making file in ccd directory :
+    # 1. lets check directory exist:
+    ccd_dir = OVPN.main_dir + "ccd"
+    if os.system('ls ' + ccd_dir) != 0:
+        os.system("echo " + current_user.sudo_password_encoded + " | sudo -S mkdir " + ccd_dir)
+    # 2. Creating file name = Common Name in certificate, needs to be the same 
+    subject = os.popen("echo " + current_user.sudo_password_encoded 
+              + " | sudo openssl x509 -in "
+              +  get_pki_dir()[1] + "/clients/" + client_cert
+              + " -subject -noout").read()
+    file_name = "'" + subject[subject.find("CN =")+4:].strip() + "'"
+    # 2. lets check if file exist in directory
+    file_path = ccd_dir + '/' + file_name
+    if os.system('ls ' + file_path) != 0:
+        os.system("echo " + current_user.sudo_password_encoded + " | sudo -S cp " 
+                  + app.root_path + "/ovpn/templates/iroute.tmpl "
+                  + file_path)
     return error
