@@ -1,3 +1,5 @@
+echo "Python Virtual active"
 source .venv/bin/activate
 python run.py
+echo "Python Virtual Deactive"
 deactivate
