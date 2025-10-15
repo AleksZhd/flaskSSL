@@ -23,7 +23,7 @@ def ovpn_server():
             if error != 'NONE':
                 flash(error, 'danger')
             return redirect (url_for('ovpn_server'))
-        if (request.form['button_pressed'] == 'start') or (request.form['button_pressed'] == 'stop') or (request.form['button_pressed'] == 'restart'):
+        if (request.form['button_pressed'] == 'start') or (request.form['button_pressed'] == 'stop') or (request.form['button_pressed'] == 'restart') or (request.form['button_pressed'] == 'enable'):
             error = change_server_status(request.form['button_pressed'])
             return redirect (url_for('ovpn_server'))
         if request.form['button_pressed'] == 'copy_certs':
