@@ -9,3 +9,6 @@ Ubuntu 24 only!
 	pip install -r requirments.txt
 4. Start server:
 	bash start
+5. SSH tunnel to server:
+	run on locale machine:
+	ssh -p 22 user@195.1.2.3 -L 127.0.0.1:5000:127.0.0.1:5000
